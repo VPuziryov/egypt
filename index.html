@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dive Safari Egypt</title>
+  <!-- Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '675997335920840');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=675997335920840&ev=PageView&noscript=1" /></noscript>
+  <!-- End Meta Pixel Code -->
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      background: #ffffff;
+      margin: 0;
+      padding: 0;
+      color: #111;
+    }
+    .lang-switch {
+      text-align: center;
+      margin-top: 8px;
+      margin-bottom: 8px;
+    }
+    .lang-button {
+      border: 2px solid #004080;
+      color: #004080;
+      background: white;
+      font-weight: bold;
+      padding: 4px 12px;
+      margin: 0 4px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    .lang-button.active {
+      background: #004080;
+      color: white;
+    }
+    .container {
+      max-width: 480px;
+      margin: 0 auto;
+      padding: 16px;
+    }
+    img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 8px;
+    }
+    h1 {
+      font-size: 1.4rem;
+      margin: 0 0 8px;
+    }
+    h2 {
+      font-size: 1.1rem;
+      font-weight: normal;
+      margin: 0 0 16px;
+      color: #444;
+    }
+    ul {
+      padding-left: 20px;
+      margin: 0 0 16px;
+    }
+    li {
+      margin-bottom: 6px;
+    }
+    .note {
+      font-size: 0.95rem;
+      margin: 16px 0;
+      color: #444;
+    }
+    .telegram-button {
+      display: block;
+      width: 100%;
+      text-align: center;
+      background-color: #004080;
+      color: white;
+      padding: 14px;
+      font-size: 1.1rem;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+    .telegram-button:hover {
+      background-color: #003366;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img id="header-img" src="https://i.imgur.com/ncekLSN.jpeg" alt="Dive Safari Egypt">
+    <div class="lang-switch">
+      <button id="btn-ru" class="lang-button" onclick="setLanguage('ru')">RU</button>
+      <button id="btn-en" class="lang-button" onclick="setLanguage('en')">EN</button>
+    </div>
+
+    <div id="lang-ru">
+      <h1>✈️ Мы встретим вас в аэропорту Хургады</h1>
+      <h2>...а дальше — только отдых и дайвинг. Всё включено — от 750 €</h2>
+      <ul>
+        <li>🛥 Яхты: Sunshine, Sunlight и Springland</li>
+        <li>📍 Маршруты: Север, Юг, Дальний Юг</li>
+        <li>✅ Нитрокс, Wi-Fi и трансфер включены</li>
+      </ul>
+      <div class="note">
+        🤖 В Telegram-боте — даты, цены, аренда снаряжения и бронирование. <br>
+        Всё ясно за 30 секунд. <br><br>
+        📞 <strong>На этапе бронирования с вами свяжется менеджер, который ведёт яхты и ответит на все вопросы лично.</strong>
+      </div>
+      <a class="telegram-button" href="https://iscuba.online/dive/tg-eg/" target="_blank" onclick="trackClickEvents()">🔵 Перейти в Telegram</a>
+    </div>
+
+    <div id="lang-en" style="display:none">
+      <h1>✈️ We’ll meet you at Hurghada Airport</h1>
+      <h2>...and from there — just diving and relaxation. All inclusive from €750</h2>
+      <ul>
+        <li>🛥 Yachts: Sunshine, Sunlight, and Springland</li>
+        <li>📍 Routes: North, South, Deep South</li>
+        <li>✅ Nitrox, Wi-Fi, and airport transfer included</li>
+      </ul>
+      <div class="note">
+        🤖 Telegram bot gives you: schedule, prices, equipment rental, booking. <br>
+        You’ll know everything in 30 seconds. <br><br>
+        📞 <strong>At the booking stage, a manager from the fleet will personally get in touch and answer your questions.</strong>
+      </div>
+      <a class="telegram-button" href="https://iscuba.online/dive/tg-eg/" target="_blank" onclick="trackClickEvents()">🔵 Go to Telegram</a>
+    </div>
+  </div>
+
+  <script>
+    const langsRU = ['ru', 'uk', 'be', 'kk', 'uz', 'ky', 'tk', 'az', 'hy', 'ka', 'lv', 'lt', 'et', 'tg', 'mo', 'ro'];
+    const userLang = navigator.language.slice(0, 2);
+
+    function showLang(lang) {
+      document.getElementById('lang-ru').style.display = lang === 'ru' ? 'block' : 'none';
+      document.getElementById('lang-en').style.display = lang === 'en' ? 'block' : 'none';
+      document.querySelectorAll('.lang-button').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      document.getElementById(`btn-${lang}`).classList.add('active');
+      document.getElementById('header-img').src = lang === 'ru'
+        ? 'https://i.imgur.com/ncekLSN.jpeg'
+        : 'https://i.imgur.com/V8Izdhx.jpeg';
+    }
+
+    function setLanguage(lang) {
+      localStorage.setItem('langPref', lang);
+      showLang(lang);
+    }
+
+    function trackClickEvents() {
+      fbq('trackCustom', 'Click_EgyptBot_tg');
+      fbq('trackCustom', 'Subscribe');
+    }
+
+    (function() {
+      const saved = localStorage.getItem('langPref');
+      if (saved === 'ru' || saved === 'en') {
+        showLang(saved);
+      } else {
+        showLang(langsRU.includes(userLang) ? 'ru' : 'en');
+      }
+      setTimeout(() => {
+        fbq('trackCustom', 'ViewContent_EgyptBook_7s');
+      }, 7000);
+    })();
+  </script>
+</body>
+</html>
