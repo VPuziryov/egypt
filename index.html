@@ -109,6 +109,7 @@
       <button id="btn-ru" class="lang-button" onclick="setLanguage('ru')">RU</button>
       <button id="btn-en" class="lang-button" onclick="setLanguage('en')">EN</button>
       <button id="btn-pl" class="lang-button" onclick="setLanguage('pl')">PL</button>
+      <button id="btn-lv" class="lang-button" onclick="setLanguage('lv')">LV</button>
     </div>
 
     <!-- Russian -->
@@ -164,17 +165,36 @@
       <a class="telegram-button" href="https://iscuba.online/dive/tg-eg/" target="_blank" onclick="trackClickTelegram()">🔵 Otwórz w Telegram</a>
       <a class="telegram-button" href="https://iscuba.online/dive/fb-eg/" target="_blank" onclick="trackClickMessenger()">🟦 Otwórz w Messenger</a>
     </div>
+
+    <!-- Latvian -->
+    <div id="lang-lv" style="display:none">
+      <h1>✈️ Mēs jūs sagaidīsim Hurgadas lidostā</h1>
+      <h2>…un tālāk — komforts, niršana un piedzīvojumi. <br>Bāzes pakete — no 750 €</h2>
+      <ul>
+        <li>🛥 Jahtas: Sunshine, Sunlight un Springland</li>
+        <li>📍 Maršruti: Ziemeļi, Dienvidi, Tālākie Dienvidi</li>
+        <li>✅ Nitrox, Wi-Fi un transfērs no lidostas iekļauts</li>
+      </ul>
+      <div class="note">
+        🤖 Telegram vai Messenger: datumi, cenas, aprīkojuma noma, rezervācija. <br>
+        Bez spama — viss skaidri 30 sekundēs. <br><br>
+        📞 <strong>Rezervācijas laikā ar jums sazināsies flotes vadītājs un atbildēs uz visiem jautājumiem.</strong>
+      </div>
+      <a class="telegram-button" href="https://iscuba.online/dive/tg-eg/" target="_blank" onclick="trackClickTelegram()">🔵 Atvērt Telegram</a>
+      <a class="telegram-button" href="https://iscuba.online/dive/fb-eg/" target="_blank" onclick="trackClickMessenger()">🟦 Atvērt Messenger</a>
+    </div>
   </div>
 
   <script>
-    const langsRU = ['ru', 'uk', 'be', 'kk', 'uz', 'ky', 'tk', 'az', 'hy', 'ka', 'lv', 'lt', 'et', 'tg', 'mo', 'ro'];
+    const langsRU = ['ru', 'uk', 'be', 'kk', 'uz', 'ky', 'tk', 'az', 'hy', 'ka', 'tg', 'mo'];
     const langsPL = ['pl'];
+    const langsLV = ['lv'];
     const userLang = navigator.language.slice(0, 2);
 
     function showLang(lang) {
-      document.getElementById('lang-ru').style.display = lang === 'ru' ? 'block' : 'none';
-      document.getElementById('lang-en').style.display = lang === 'en' ? 'block' : 'none';
-      document.getElementById('lang-pl').style.display = lang === 'pl' ? 'block' : 'none';
+      ['ru', 'en', 'pl', 'lv'].forEach(l => {
+        document.getElementById(`lang-${l}`).style.display = lang === l ? 'block' : 'none';
+      });
 
       document.querySelectorAll('.lang-button').forEach(btn => btn.classList.remove('active'));
       const activeBtn = document.getElementById(`btn-${lang}`);
@@ -183,6 +203,7 @@
       document.getElementById('header-img').src =
         lang === 'ru' ? 'EG_ru_for_landing.jpg' :
         lang === 'pl' ? 'EG_pl_for_landing.jpg' :
+        lang === 'lv' ? 'EG_lv_for_landing.jpg' :
         'EG_en_for_landing.jpg';
     }
 
@@ -205,7 +226,9 @@
       const saved = localStorage.getItem('langPref');
       const langAuto =
         langsRU.includes(userLang) ? 'ru' :
-        langsPL.includes(userLang) ? 'pl' : 'en';
+        langsPL.includes(userLang) ? 'pl' :
+        langsLV.includes(userLang) ? 'lv' :
+        'en';
       showLang(saved || langAuto);
       setTimeout(() => {
         fbq('trackCustom', 'ViewContent_EgyptBook_7s');
