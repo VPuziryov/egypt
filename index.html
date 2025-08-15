@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="pl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,7 +19,7 @@
     fbq('track', 'PageView');
   </script>
   <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=675997335920840&ev=PageView&noscript=1" /></noscript>
+    src="https://www.facebook.com/tr?id=675997335920840&ev=PageView&noscript=1"/></noscript>
   <!-- End Meta Pixel Code -->
 
   <style>
@@ -103,13 +103,16 @@
 </head>
 <body>
   <div class="container">
-    <img id="header-img" src="EG_ru_for_landing.jpg" alt="Dive Safari Egypt">
+    <img id="header-img" src="EG_pl_for_landing.jpg" alt="Dive Safari Egypt">
+
     <div class="lang-switch">
       <button id="btn-ru" class="lang-button" onclick="setLanguage('ru')">RU</button>
       <button id="btn-en" class="lang-button" onclick="setLanguage('en')">EN</button>
+      <button id="btn-pl" class="lang-button" onclick="setLanguage('pl')">PL</button>
     </div>
 
-    <div id="lang-ru">
+    <!-- Russian -->
+    <div id="lang-ru" style="display:none">
       <h1>✈️ Мы встретим вас в аэропорту Хургады</h1>
       <h2>…а дальше — комфорт, дайвинг и приключения. <br>Базовый пакет — от 750 €</h2>
       <ul>
@@ -119,13 +122,14 @@
       </ul>
       <div class="note">
         🤖 В Telegram или Messenger — даты, цены, аренда снаряжения и бронирование. <br>
-Всё чётко и без спама — за 30 секунд. <br><br>
-📞 <strong>На этапе бронирования с вами свяжется менеджер, который ведёт яхты и ответит на все вопросы лично.</strong>
+        Всё чётко и без спама — за 30 секунд. <br><br>
+        📞 <strong>На этапе бронирования с вами свяжется менеджер, который ведёт яхты и ответит на все вопросы лично.</strong>
       </div>
       <a class="telegram-button" href="https://iscuba.online/dive/tg-eg/" target="_blank" onclick="trackClickTelegram()">🔵 Перейти в Telegram</a>
       <a class="telegram-button" href="https://iscuba.online/dive/fb-eg/" target="_blank" onclick="trackClickMessenger()">🟦 Перейти в Messenger</a>
     </div>
 
+    <!-- English -->
     <div id="lang-en" style="display:none">
       <h1>✈️ We’ll meet you at Hurghada Airport</h1>
       <h2>…then it's all about comfort, diving, and adventure. <br>Base package — from €750</h2>
@@ -136,27 +140,49 @@
       </ul>
       <div class="note">
         🤖 In Telegram or Messenger: schedule, prices, equipment rental, booking. <br>
-No spam, no fluff — full clarity in 30 seconds. <br><br>
-📞 <strong>At the booking stage, a real fleet manager will get in touch and answer all your questions personally.</strong>
+        No spam, no fluff — full clarity in 30 seconds. <br><br>
+        📞 <strong>At the booking stage, a real fleet manager will get in touch and answer all your questions personally.</strong>
       </div>
       <a class="telegram-button" href="https://iscuba.online/dive/tg-eg/" target="_blank" onclick="trackClickTelegram()">🔵 Go to Telegram</a>
       <a class="telegram-button" href="https://iscuba.online/dive/fb-eg/" target="_blank" onclick="trackClickMessenger()">🟦 Go to Messenger</a>
+    </div>
+
+    <!-- Polish -->
+    <div id="lang-pl" style="display:none">
+      <h1>✈️ Odbierzemy Cię z lotniska w Hurghadzie</h1>
+      <h2>…a potem już tylko komfort, nurkowanie i przygoda. <br>Pakiet podstawowy — od 750 €</h2>
+      <ul>
+        <li>🛥 Jachty: Sunshine, Sunlight i Springland</li>
+        <li>📍 Trasy: Północ, Południe, Dalekie Południe</li>
+        <li>✅ Nitrox, Wi-Fi i transfer z lotniska w cenie</li>
+      </ul>
+      <div class="note">
+        🤖 W Telegramie lub Messengerze: terminy, ceny, wynajem sprzętu, rezerwacja. <br>
+        Bez spamu — wszystko jasne w 30 sekund. <br><br>
+        📞 <strong>Podczas rezerwacji skontaktuje się z Tobą manager floty i odpowie na wszystkie pytania.</strong>
+      </div>
+      <a class="telegram-button" href="https://iscuba.online/dive/tg-eg/" target="_blank" onclick="trackClickTelegram()">🔵 Otwórz w Telegram</a>
+      <a class="telegram-button" href="https://iscuba.online/dive/fb-eg/" target="_blank" onclick="trackClickMessenger()">🟦 Otwórz w Messenger</a>
     </div>
   </div>
 
   <script>
     const langsRU = ['ru', 'uk', 'be', 'kk', 'uz', 'ky', 'tk', 'az', 'hy', 'ka', 'lv', 'lt', 'et', 'tg', 'mo', 'ro'];
+    const langsPL = ['pl'];
     const userLang = navigator.language.slice(0, 2);
 
     function showLang(lang) {
       document.getElementById('lang-ru').style.display = lang === 'ru' ? 'block' : 'none';
       document.getElementById('lang-en').style.display = lang === 'en' ? 'block' : 'none';
-      document.querySelectorAll('.lang-button').forEach(btn => {
-        btn.classList.remove('active');
-      });
+      document.getElementById('lang-pl').style.display = lang === 'pl' ? 'block' : 'none';
+
+      document.querySelectorAll('.lang-button').forEach(btn => btn.classList.remove('active'));
       document.getElementById(`btn-${lang}`).classList.add('active');
+
       document.getElementById('header-img').src = lang === 'ru'
         ? 'EG_ru_for_landing.jpg'
+        : lang === 'pl'
+        ? 'EG_pl_for_landing.jpg'
         : 'EG_en_for_landing.jpg';
     }
 
@@ -177,10 +203,10 @@ No spam, no fluff — full clarity in 30 seconds. <br><br>
 
     (function() {
       const saved = localStorage.getItem('langPref');
-      if (saved === 'ru' || saved === 'en') {
+      if (saved) {
         showLang(saved);
       } else {
-        showLang(langsRU.includes(userLang) ? 'ru' : 'en');
+        showLang(langsRU.includes(userLang) ? 'ru' : langsPL.includes(userLang) ? 'pl' : 'en');
       }
       setTimeout(() => {
         fbq('trackCustom', 'ViewContent_EgyptBook_7s');
