@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,7 +19,7 @@
     fbq('track', 'PageView');
   </script>
   <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=675997335920840&ev=PageView&noscript=1"/></noscript>
+    src="https://www.facebook.com/tr?id=675997335920840&ev=PageView&noscript=1" /></noscript>
   <!-- End Meta Pixel Code -->
 
   <style>
@@ -103,7 +103,7 @@
 </head>
 <body>
   <div class="container">
-    <img id="header-img" src="EG_pl_for_landing.jpg" alt="Dive Safari Egypt">
+    <img id="header-img" src="EG_en_for_landing.jpg" alt="Dive Safari Egypt">
 
     <div class="lang-switch">
       <button id="btn-ru" class="lang-button" onclick="setLanguage('ru')">RU</button>
@@ -177,13 +177,13 @@
       document.getElementById('lang-pl').style.display = lang === 'pl' ? 'block' : 'none';
 
       document.querySelectorAll('.lang-button').forEach(btn => btn.classList.remove('active'));
-      document.getElementById(`btn-${lang}`).classList.add('active');
+      const activeBtn = document.getElementById(`btn-${lang}`);
+      if (activeBtn) activeBtn.classList.add('active');
 
-      document.getElementById('header-img').src = lang === 'ru'
-        ? 'EG_ru_for_landing.jpg'
-        : lang === 'pl'
-        ? 'EG_pl_for_landing.jpg'
-        : 'EG_en_for_landing.jpg';
+      document.getElementById('header-img').src =
+        lang === 'ru' ? 'EG_ru_for_landing.jpg' :
+        lang === 'pl' ? 'EG_pl_for_landing.jpg' :
+        'EG_en_for_landing.jpg';
     }
 
     function setLanguage(lang) {
@@ -203,11 +203,10 @@
 
     (function() {
       const saved = localStorage.getItem('langPref');
-      if (saved) {
-        showLang(saved);
-      } else {
-        showLang(langsRU.includes(userLang) ? 'ru' : langsPL.includes(userLang) ? 'pl' : 'en');
-      }
+      const langAuto =
+        langsRU.includes(userLang) ? 'ru' :
+        langsPL.includes(userLang) ? 'pl' : 'en';
+      showLang(saved || langAuto);
       setTimeout(() => {
         fbq('trackCustom', 'ViewContent_EgyptBook_7s');
       }, 7000);
