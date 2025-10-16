@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Dive Safari Egypt</title>
 
-  <!-- Meta Pixel Code (unchanged) -->
+  <!-- Meta Pixel Code -->
   <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -22,12 +22,11 @@
     <img height="1" width="1" style="display:none"
          src="https://www.facebook.com/tr?id=675997335920840&ev=PageView&noscript=1"/>
   </noscript>
-  <!-- End Meta Pixel Code -->
 
   <style>
     :root{
-      --brand:#006AFF;      /* Messenger */
-      --accent:#28A8E9;     /* Telegram  */
+      --brand:#006AFF;
+      --accent:#28A8E9;
       --text:#0f172a;
       --muted:#475569;
       --soft:#f1f5ff;
@@ -36,44 +35,43 @@
       --shadow:0 6px 20px rgba(2,6,23,.08);
     }
     *{box-sizing:border-box}
-    html,body{height:100%}
     body{
       font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,sans-serif;
-      margin:0;color:var(--text);background:#fff;
+      margin:0;background:#fff;color:var(--text);
       -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
     }
-    .container{max-width:640px;margin:0 auto;padding:16px 16px 80px}
-    .hero-img{width:100%;border-radius:16px;display:block}
-    .lang-switch{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:12px 0 4px}
+    .container{
+      max-width:640px;margin:0 auto;padding:16px 16px 100px;
+      text-align:center; /* выравнивание по центру */
+    }
+    .hero-img{width:100%;border-radius:16px;display:block;margin:0 auto}
+    .lang-switch{
+      display:flex;gap:8px;flex-wrap:wrap;justify-content:center;
+      margin:12px 0 4px;
+    }
     .lang-button{
       border:2px solid var(--brand);background:#fff;color:var(--brand);
-      font-weight:800;padding:6px 12px;border-radius:12px;cursor:pointer
+      font-weight:800;padding:6px 12px;border-radius:12px;cursor:pointer;
     }
     .lang-button.active{background:var(--brand);color:#fff}
     h1{font-size:1.45rem;line-height:1.25;margin:12px 0 6px}
     h2{font-size:1.06rem;line-height:1.35;margin:0 0 14px;color:#1f2937}
-    ul{margin:0 0 10px;padding-left:22px}
-    li{margin-bottom:6px}
+
+    ul{margin:10px auto 14px;padding:0;list-style:none;max-width:90%;text-align:left;}
+    ul li{margin-bottom:6px;}
     .months{
-      background:#f1f5ff;
-      border:1px solid #e7eeff;
-      border-radius:12px;
-      padding:10px 12px;
-      margin:12px 0;
-      list-style:none;
-      padding-left:12px;
+      background:var(--soft);border:1px solid var(--soft2);
+      border-radius:12px;padding:10px 16px;margin:12px auto;
+      list-style:none;max-width:90%;text-align:left;
     }
     .months li{margin:4px 0;list-style:none}
-    .note{font-size:.95rem;color:#1f2937;margin:12px 0}
-    .subnote{font-size:.88rem;color:var(--muted);margin-top:6px}
 
-    /* CTA — центр на десктопе, равные кнопки */
+    .note{font-size:.95rem;color:#1f2937;margin:12px auto;max-width:90%}
+    .subnote{font-size:.88rem;color:var(--muted);margin-top:6px;max-width:90%;margin-left:auto;margin-right:auto;}
+
+    /* CTA */
     .cta-row{
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-      margin:14px 0;
-      justify-content:center;   /* центрируем */
+      display:flex;gap:12px;flex-wrap:wrap;margin:16px 0;justify-content:center;
     }
     .btn{
       display:inline-flex;align-items:center;justify-content:center;gap:8px;
@@ -87,13 +85,14 @@
     .btn-secondary{background:var(--accent);border-color:var(--accent)}
     .btn small{font-weight:600;opacity:.92;display:block;margin-top:3px;line-height:1.1}
     @media (max-width:768px){
+      .container{text-align:left;}
       .btn{flex:1;text-align:center}
+      ul,.months,.note,.subnote{text-align:left;max-width:100%;}
     }
 
     /* Sticky CTA — только мобильные */
     .cta-sticky{display:none}
     @media (max-width:768px){
-      .container{padding-bottom:120px}
       .cta-sticky{
         display:block;position:fixed;left:0;right:0;bottom:10px;z-index:9999;
         padding:10px 12px;background:rgba(255,255,255,.96);backdrop-filter:blur(8px)
@@ -106,29 +105,28 @@
   <div class="container">
     <img id="header-img" class="hero-img" src="EG_en_for_landing.jpg" alt="Dive Safari Egypt" loading="lazy"/>
 
-    <!-- Language switch -->
     <div class="lang-switch" role="tablist" aria-label="Language switcher">
-      <button id="btn-ru" class="lang-button" onclick="setLanguage('ru')" role="tab" aria-controls="lang-ru">RU</button>
-      <button id="btn-en" class="lang-button" onclick="setLanguage('en')" role="tab" aria-controls="lang-en">EN</button>
-      <button id="btn-pl" class="lang-button" onclick="setLanguage('pl')" role="tab" aria-controls="lang-pl">PL</button>
-      <button id="btn-lv" class="lang-button" onclick="setLanguage('lv')" role="tab" aria-controls="lang-lv">LV</button>
-      <button id="btn-de" class="lang-button" onclick="setLanguage('de')" role="tab" aria-controls="lang-de">DE</button>
-      <button id="btn-fr" class="lang-button" onclick="setLanguage('fr')" role="tab" aria-controls="lang-fr">FR</button>
-      <button id="btn-it" class="lang-button" onclick="setLanguage('it')" role="tab" aria-controls="lang-it">IT</button>
-      <button id="btn-es" class="lang-button" onclick="setLanguage('es')" role="tab" aria-controls="lang-es">ES</button>
+      <button id="btn-ru" class="lang-button" onclick="setLanguage('ru')">RU</button>
+      <button id="btn-en" class="lang-button" onclick="setLanguage('en')">EN</button>
+      <button id="btn-pl" class="lang-button" onclick="setLanguage('pl')">PL</button>
+      <button id="btn-lv" class="lang-button" onclick="setLanguage('lv')">LV</button>
+      <button id="btn-de" class="lang-button" onclick="setLanguage('de')">DE</button>
+      <button id="btn-fr" class="lang-button" onclick="setLanguage('fr')">FR</button>
+      <button id="btn-it" class="lang-button" onclick="setLanguage('it')">IT</button>
+      <button id="btn-es" class="lang-button" onclick="setLanguage('es')">ES</button>
     </div>
 
-    <!-- ========== RU ========== -->
-    <section id="lang-ru" style="display:none" role="tabpanel" aria-labelledby="btn-ru">
+    <!-- RU -->
+    <section id="lang-ru" style="display:none">
       <h1>✈️ Мы встретим вас в аэропорту Хургады</h1>
       <h2>Базовый пакет от 750 € — всё включено: яхта, питание, дайвинг, трансфер.</h2>
 
-      <div class="cta-row" aria-label="Основные действия">
-        <a class="btn btn-primary" href="https://iscuba.online/dive/fb-eg/" target="_blank" rel="noopener" onclick="trackClickMessenger()">
+      <div class="cta-row">
+        <a class="btn btn-primary" href="https://iscuba.online/dive/fb-eg/" target="_blank" onclick="trackClickMessenger()">
           🟦 Перейти в Messenger
           <small>ответим в течение 15 минут</small>
         </a>
-        <a class="btn btn-secondary" href="https://iscuba.online/dive/tg-eg/" target="_blank" rel="noopener" onclick="trackClickTelegram()">
+        <a class="btn btn-secondary" href="https://iscuba.online/dive/tg-eg/" target="_blank" onclick="trackClickTelegram()">
           🔵 Перейти в Telegram
           <small>расписание и свободные места</small>
         </a>
@@ -143,21 +141,21 @@
         <li>📅 Октябрь — осталось несколько кают</li>
         <li>📅 Ноябрь — завершаем набор</li>
       </ul>
-      <p class="note">📩 Актуальное расписание и места — в Messenger или Telegram. <br/> 💬 Менеджер яхты ответит лично.</p>
+      <p class="note">📩 Актуальное расписание и места — в Messenger или Telegram. <br> 💬 Менеджер яхты ответит лично.</p>
       <p class="subnote">Без предоплаты до подтверждения каюты. Документы и страховка — по запросу.</p>
     </section>
 
-    <!-- ========== EN (пример, остальные языки оставляем как есть) ========== -->
-    <section id="lang-en" style="display:none" role="tabpanel" aria-labelledby="btn-en">
+    <!-- EN -->
+    <section id="lang-en" style="display:none">
       <h1>✈️ We’ll meet you at Hurghada Airport</h1>
       <h2>Base package from €750 — all inclusive: liveaboard, meals, diving, airport transfer.</h2>
 
-      <div class="cta-row" aria-label="Primary actions">
-        <a class="btn btn-primary" href="https://iscuba.online/dive/fb-eg/" target="_blank" rel="noopener" onclick="trackClickMessenger()">
+      <div class="cta-row">
+        <a class="btn btn-primary" href="https://iscuba.online/dive/fb-eg/" target="_blank" onclick="trackClickMessenger()">
           🟦 Go to Messenger
           <small>reply within 15 minutes</small>
         </a>
-        <a class="btn btn-secondary" href="https://iscuba.online/dive/tg-eg/" target="_blank" rel="noopener" onclick="trackClickTelegram()">
+        <a class="btn btn-secondary" href="https://iscuba.online/dive/tg-eg/" target="_blank" onclick="trackClickTelegram()">
           🔵 Go to Telegram
           <small>schedule & free spots</small>
         </a>
@@ -172,69 +170,44 @@
         <li>📅 October — few cabins left</li>
         <li>📅 November — closing the group</li>
       </ul>
-      <p class="note">📩 Get the current schedule and free spots in Messenger or Telegram. <br/> 💬 Our liveaboard manager will answer you personally.</p>
+      <p class="note">📩 Get the current schedule and free spots in Messenger or Telegram. <br> 💬 Our liveaboard manager will answer you personally.</p>
       <p class="subnote">No prepayment until your cabin is confirmed. Insurance on request.</p>
     </section>
   </div>
 
-  <!-- Sticky CTA — только мобилки -->
-  <nav class="cta-sticky" role="navigation" aria-label="Floating call to action">
+  <nav class="cta-sticky">
     <div class="cta-sticky-inner">
-      <a class="btn btn-primary" href="https://iscuba.online/dive/fb-eg/" target="_blank" rel="noopener" onclick="trackClickMessenger()">🟦 Messenger</a>
-      <a class="btn btn-secondary" href="https://iscuba.online/dive/tg-eg/" target="_blank" rel="noopener" onclick="trackClickTelegram()">🔵 Telegram</a>
+      <a class="btn btn-primary" href="https://iscuba.online/dive/fb-eg/" target="_blank" onclick="trackClickMessenger()">🟦 Messenger</a>
+      <a class="btn btn-secondary" href="https://iscuba.online/dive/tg-eg/" target="_blank" onclick="trackClickTelegram()">🔵 Telegram</a>
     </div>
   </nav>
 
   <script>
-    // Locale groups (as before)
-    const langsRU = ['ru','uk','be','kk','uz','ky','tk','az','hy','ka','tg','mo'];
-    const langsPL = ['pl'];
-    const langsLV = ['lv'];
-    const ALL_LANGS = ['ru','en','pl','lv','de','fr','it','es'];
-    const userLang = (navigator.language || '').slice(0,2).toLowerCase();
+    const langsRU=['ru','uk','be','kk','uz','ky','tk','az','hy','ka','tg','mo'];
+    const langsPL=['pl'];const langsLV=['lv'];
+    const ALL=['ru','en','pl','lv','de','fr','it','es'];
+    const userLang=(navigator.language||'').slice(0,2).toLowerCase();
 
-    function showLang(lang){
-      ALL_LANGS.forEach(l=>{
-        const el = document.getElementById(`lang-${l}`);
-        if(el) el.style.display = (l===lang ? 'block' : 'none');
-      });
+    function showLang(l){
+      ALL.forEach(x=>{const e=document.getElementById('lang-'+x);if(e)e.style.display=(x===l?'block':'none')});
       document.querySelectorAll('.lang-button').forEach(b=>b.classList.remove('active'));
-      const btn = document.getElementById(`btn-${lang}`); if(btn) btn.classList.add('active');
-
-      const imgMap = {
-        ru:'EG_ru_for_landing.jpg',
-        en:'EG_en_for_landing.jpg',
-        pl:'EG_pl_for_landing.jpg',
-        lv:'EG_lv_for_landing.jpg',
-        de:'EG_de_for_landing.jpg',
-        fr:'EG_fr_for_landing.jpg',
-        it:'EG_it_for_landing.jpg',
-        es:'EG_es_for_landing.jpg'
-      };
-      const img = document.getElementById('header-img');
-      img.src = imgMap[lang] || imgMap['en'];
-      document.documentElement.setAttribute('lang', lang);
+      const btn=document.getElementById('btn-'+l);if(btn)btn.classList.add('active');
+      const map={ru:'EG_ru_for_landing.jpg',en:'EG_en_for_landing.jpg',pl:'EG_pl_for_landing.jpg',
+        lv:'EG_lv_for_landing.jpg',de:'EG_de_for_landing.jpg',fr:'EG_fr_for_landing.jpg',
+        it:'EG_it_for_landing.jpg',es:'EG_es_for_landing.jpg'};
+      document.getElementById('header-img').src=map[l]||map['en'];
+      document.documentElement.setAttribute('lang',l);
     }
-    function setLanguage(lang){
-      localStorage.setItem('langPref', lang);
-      showLang(lang);
-    }
-
-    // Pixel events — сохранены
-    function trackClickTelegram(){ fbq('trackCustom','Click_EgyptBot_tg'); fbq('trackCustom','Subscribe'); }
-    function trackClickMessenger(){ fbq('trackCustom','Click_EgyptBot_fb'); fbq('trackCustom','Subscribe'); }
+    function setLanguage(l){localStorage.setItem('langPref',l);showLang(l);}
+    function trackClickTelegram(){fbq('trackCustom','Click_EgyptBot_tg');fbq('trackCustom','Subscribe');}
+    function trackClickMessenger(){fbq('trackCustom','Click_EgyptBot_fb');fbq('trackCustom','Subscribe');}
 
     (function(){
-      const saved = localStorage.getItem('langPref');
-      const auto =
-        langsRU.includes(userLang) ? 'ru' :
-        langsPL.includes(userLang) ? 'pl' :
-        langsLV.includes(userLang) ? 'lv' :
-        ['de','fr','it','es','en'].includes(userLang) ? userLang : 'en';
-      showLang(saved || auto);
-
-      // 7s engaged view — оставляем
-      setTimeout(()=>{ fbq('trackCustom','ViewContent_EgyptBook_7s'); }, 7000);
+      const saved=localStorage.getItem('langPref');
+      const auto=langsRU.includes(userLang)?'ru':langsPL.includes(userLang)?'pl':
+      langsLV.includes(userLang)?'lv':(['de','fr','it','es','en'].includes(userLang)?userLang:'en');
+      showLang(saved||auto);
+      setTimeout(()=>{fbq('trackCustom','ViewContent_EgyptBook_7s');},7000);
     })();
   </script>
 </body>
