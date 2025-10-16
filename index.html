@@ -42,7 +42,7 @@
     }
     .container{
       max-width:640px;margin:0 auto;padding:16px 16px 100px;
-      text-align:center; /* выравнивание по центру */
+      text-align:center;
     }
     .hero-img{width:100%;border-radius:16px;display:block;margin:0 auto}
     .lang-switch{
@@ -57,12 +57,28 @@
     h1{font-size:1.45rem;line-height:1.25;margin:12px 0 6px}
     h2{font-size:1.06rem;line-height:1.35;margin:0 0 14px;color:#1f2937}
 
-    ul{margin:10px auto 14px;padding:0;list-style:none;max-width:90%;text-align:left;}
+    /* Списки центрированные, но с точками */
+    ul{
+      margin:10px auto 14px;
+      padding-left:24px;
+      list-style:disc;
+      max-width:90%;
+      text-align:left;
+      display:inline-block;
+    }
     ul li{margin-bottom:6px;}
+
+    /* Месяцы — без точек */
     .months{
-      background:var(--soft);border:1px solid var(--soft2);
-      border-radius:12px;padding:10px 16px;margin:12px auto;
-      list-style:none;max-width:90%;text-align:left;
+      background:var(--soft);
+      border:1px solid var(--soft2);
+      border-radius:12px;
+      padding:10px 16px;
+      margin:12px auto;
+      list-style:none;
+      max-width:90%;
+      text-align:left;
+      display:inline-block;
     }
     .months li{margin:4px 0;list-style:none}
 
@@ -87,7 +103,7 @@
     @media (max-width:768px){
       .container{text-align:left;}
       .btn{flex:1;text-align:center}
-      ul,.months,.note,.subnote{text-align:left;max-width:100%;}
+      ul,.months,.note,.subnote{text-align:left;max-width:100%;display:block;}
     }
 
     /* Sticky CTA — только мобильные */
@@ -105,7 +121,7 @@
   <div class="container">
     <img id="header-img" class="hero-img" src="EG_en_for_landing.jpg" alt="Dive Safari Egypt" loading="lazy"/>
 
-    <div class="lang-switch" role="tablist" aria-label="Language switcher">
+    <div class="lang-switch">
       <button id="btn-ru" class="lang-button" onclick="setLanguage('ru')">RU</button>
       <button id="btn-en" class="lang-button" onclick="setLanguage('en')">EN</button>
       <button id="btn-pl" class="lang-button" onclick="setLanguage('pl')">PL</button>
@@ -143,35 +159,6 @@
       </ul>
       <p class="note">📩 Актуальное расписание и места — в Messenger или Telegram. <br> 💬 Менеджер яхты ответит лично.</p>
       <p class="subnote">Без предоплаты до подтверждения каюты. Документы и страховка — по запросу.</p>
-    </section>
-
-    <!-- EN -->
-    <section id="lang-en" style="display:none">
-      <h1>✈️ We’ll meet you at Hurghada Airport</h1>
-      <h2>Base package from €750 — all inclusive: liveaboard, meals, diving, airport transfer.</h2>
-
-      <div class="cta-row">
-        <a class="btn btn-primary" href="https://iscuba.online/dive/fb-eg/" target="_blank" onclick="trackClickMessenger()">
-          🟦 Go to Messenger
-          <small>reply within 15 minutes</small>
-        </a>
-        <a class="btn btn-secondary" href="https://iscuba.online/dive/tg-eg/" target="_blank" onclick="trackClickTelegram()">
-          🔵 Go to Telegram
-          <small>schedule & free spots</small>
-        </a>
-      </div>
-
-      <ul>
-        <li>🛥 Yachts: Sunshine, Sunlight, Springland</li>
-        <li>📍 Routes: North, South, Deep South</li>
-        <li>✅ Nitrox, Wi-Fi and meals included</li>
-      </ul>
-      <ul class="months">
-        <li>📅 October — few cabins left</li>
-        <li>📅 November — closing the group</li>
-      </ul>
-      <p class="note">📩 Get the current schedule and free spots in Messenger or Telegram. <br> 💬 Our liveaboard manager will answer you personally.</p>
-      <p class="subnote">No prepayment until your cabin is confirmed. Insurance on request.</p>
     </section>
   </div>
 
