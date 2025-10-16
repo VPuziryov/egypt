@@ -57,62 +57,39 @@
     h1{font-size:1.45rem;line-height:1.25;margin:12px 0 6px}
     h2{font-size:1.06rem;line-height:1.35;margin:0 0 14px;color:#1f2937}
 
-    /* Списки центрированные, но с точками */
-    ul{
-      margin:10px auto 14px;
-      padding-left:24px;
-      list-style:disc;
-      max-width:90%;
-      text-align:left;
-      display:inline-block;
-    }
+    /* списки центрированные с точками */
+    ul{margin:10px auto 14px;padding-left:24px;list-style:disc;max-width:90%;text-align:left;display:inline-block;}
     ul li{margin-bottom:6px;}
 
-    /* Месяцы — без точек */
-    .months{
-      background:var(--soft);
-      border:1px solid var(--soft2);
-      border-radius:12px;
-      padding:10px 16px;
-      margin:12px auto;
-      list-style:none;
-      max-width:90%;
-      text-align:left;
-      display:inline-block;
-    }
+    /* месяцы без точек */
+    .months{background:var(--soft);border:1px solid var(--soft2);
+      border-radius:12px;padding:10px 16px;margin:12px auto;list-style:none;
+      max-width:90%;text-align:left;display:inline-block;}
     .months li{margin:4px 0;list-style:none}
 
     .note{font-size:.95rem;color:#1f2937;margin:12px auto;max-width:90%}
     .subnote{font-size:.88rem;color:var(--muted);margin-top:6px;max-width:90%;margin-left:auto;margin-right:auto;}
 
-    /* CTA */
-    .cta-row{
-      display:flex;gap:12px;flex-wrap:wrap;margin:16px 0;justify-content:center;
-    }
-    .btn{
-      display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    .cta-row{display:flex;gap:12px;flex-wrap:wrap;margin:16px 0;justify-content:center;}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;
       padding:14px 18px;border-radius:var(--radius);text-decoration:none;
-      font-weight:900;line-height:1;border:1px solid transparent;
-      color:#fff;box-shadow:var(--shadow);transition:transform .06s ease,opacity .2s ease;
-      min-height:48px;
-    }
+      font-weight:900;line-height:1;border:1px solid transparent;color:#fff;
+      box-shadow:var(--shadow);transition:transform .06s ease,opacity .2s ease;min-height:48px;}
     .btn:active{transform:translateY(1px)}
     .btn-primary{background:var(--brand);border-color:var(--brand)}
     .btn-secondary{background:var(--accent);border-color:var(--accent)}
     .btn small{font-weight:600;opacity:.92;display:block;margin-top:3px;line-height:1.1}
+
     @media (max-width:768px){
       .container{text-align:left;}
       .btn{flex:1;text-align:center}
       ul,.months,.note,.subnote{text-align:left;max-width:100%;display:block;}
     }
 
-    /* Sticky CTA — только мобильные */
     .cta-sticky{display:none}
     @media (max-width:768px){
-      .cta-sticky{
-        display:block;position:fixed;left:0;right:0;bottom:10px;z-index:9999;
-        padding:10px 12px;background:rgba(255,255,255,.96);backdrop-filter:blur(8px)
-      }
+      .cta-sticky{display:block;position:fixed;left:0;right:0;bottom:10px;z-index:9999;
+        padding:10px 12px;background:rgba(255,255,255,.96);backdrop-filter:blur(8px)}
       .cta-sticky-inner{display:flex;gap:10px;max-width:640px;margin:0 auto}
     }
   </style>
@@ -136,18 +113,10 @@
     <section id="lang-ru" style="display:none">
       <h1>✈️ Мы встретим вас в аэропорту Хургады</h1>
       <h2>Базовый пакет от 750 € — всё включено: яхта, питание, дайвинг, трансфер.</h2>
-
       <div class="cta-row">
-        <a class="btn btn-primary" href="https://iscuba.online/dive/fb-eg/" target="_blank" onclick="trackClickMessenger()">
-          🟦 Перейти в Messenger
-          <small>ответим в течение 15 минут</small>
-        </a>
-        <a class="btn btn-secondary" href="https://iscuba.online/dive/tg-eg/" target="_blank" onclick="trackClickTelegram()">
-          🔵 Перейти в Telegram
-          <small>расписание и свободные места</small>
-        </a>
+        <a class="btn btn-primary" href="https://iscuba.online/dive/fb-eg/" target="_blank" onclick="trackClickMessenger()">🟦 Перейти в Messenger<small>ответим в течение 15 минут</small></a>
+        <a class="btn btn-secondary" href="https://iscuba.online/dive/tg-eg/" target="_blank" onclick="trackClickTelegram()">🔵 Перейти в Telegram<small>расписание и свободные места</small></a>
       </div>
-
       <ul>
         <li>🛥 Яхты: Sunshine, Sunlight и Springland</li>
         <li>📍 Маршруты: Север, Юг, Дальний Юг</li>
@@ -157,9 +126,52 @@
         <li>📅 Октябрь — осталось несколько кают</li>
         <li>📅 Ноябрь — завершаем набор</li>
       </ul>
-      <p class="note">📩 Актуальное расписание и места — в Messenger или Telegram. <br> 💬 Менеджер яхты ответит лично.</p>
+      <p class="note">📩 Актуальное расписание и места — в Messenger или Telegram.<br>💬 Менеджер яхты ответит лично.</p>
       <p class="subnote">Без предоплаты до подтверждения каюты. Документы и страховка — по запросу.</p>
     </section>
+
+    <!-- EN -->
+    <section id="lang-en" style="display:none">
+      <h1>✈️ We’ll meet you at Hurghada Airport</h1>
+      <h2>Base package from €750 — all inclusive: liveaboard, meals, diving, airport transfer.</h2>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="https://iscuba.online/dive/fb-eg/" target="_blank" onclick="trackClickMessenger()">🟦 Go to Messenger<small>reply within 15 minutes</small></a>
+        <a class="btn btn-secondary" href="https://iscuba.online/dive/tg-eg/" target="_blank" onclick="trackClickTelegram()">🔵 Go to Telegram<small>schedule & free spots</small></a>
+      </div>
+      <ul>
+        <li>🛥 Yachts: Sunshine, Sunlight, Springland</li>
+        <li>📍 Routes: North, South, Deep South</li>
+        <li>✅ Nitrox, Wi-Fi and meals included</li>
+      </ul>
+      <ul class="months">
+        <li>📅 October — few cabins left</li>
+        <li>📅 November — closing the group</li>
+      </ul>
+      <p class="note">📩 Get the current schedule and free spots in Messenger or Telegram.<br>💬 Our liveaboard manager will answer personally.</p>
+      <p class="subnote">No prepayment until cabin confirmed. Insurance upon request.</p>
+    </section>
+
+    <!-- PL -->
+    <section id="lang-pl" style="display:none">
+      <h1>✈️ Odbierzemy Cię z lotniska w Hurghadzie</h1>
+      <h2>Pakiet podstawowy od 750 € — wszystko w cenie: liveaboard, wyżywienie, nurkowania, transfer.</h2>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="https://iscuba.online/dive/fb-eg/" target="_blank" onclick="trackClickMessenger()">🟦 Otwórz w Messengerze<small>odpowiemy w 15 minut</small></a>
+        <a class="btn btn-secondary" href="https://iscuba.online/dive/tg-eg/" target="_blank" onclick="trackClickTelegram()">🔵 Otwórz w Telegramie<small>harmonogram i wolne miejsca</small></a>
+      </div>
+      <ul>
+        <li>🛥 Jachty: Sunshine, Sunlight, Springland</li>
+        <li>📍 Trasy: Północ, Południe, Dalekie Południe</li>
+        <li>✅ Nitrox, Wi-Fi i wyżywienie w cenie</li>
+      </ul>
+      <ul class="months">
+        <li>📅 Październik — kilka kabin</li>
+        <li>📅 Listopad — zamykamy grupę</li>
+      </ul>
+      <p class="note">📩 Aktualny plan i wolne miejsca — Messenger lub Telegram.</p>
+    </section>
+
+    <!-- LV, DE, FR, IT, ES — остаются по аналогии (структура та же) -->
   </div>
 
   <nav class="cta-sticky">
