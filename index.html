@@ -25,44 +25,102 @@
   <!-- End Meta Pixel Code -->
 
   <style>
-    :root { --brand:#004080; --brand-dark:#003366; }
-    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,sans-serif;background:#fff;margin:0;color:#111}
-    .container{max-width:480px;margin:0 auto;padding:16px}
-    img{width:100%;border-radius:8px;margin-bottom:8px}
-    .lang-switch{text-align:center;margin:8px 0;display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
-    .lang-button{border:2px solid var(--brand);color:var(--brand);background:#fff;font-weight:700;padding:4px 10px;cursor:pointer;border-radius:4px}
+    :root{
+      --brand:#006AFF;          /* primary (Messenger) */
+      --accent:#28A8E9;         /* secondary (Telegram) */
+      --text:#111;
+      --muted:#555;
+      --bg:#fff;
+      --soft:#f5f8ff;
+      --border:#e7e7e7;
+      --radius:14px;
+      --shadow:0 6px 24px rgba(0,0,0,.08);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,sans-serif;
+      background:var(--bg); color:var(--text); margin:0;
+      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+    }
+    .container{max-width:620px;margin:0 auto;padding:16px 16px 120px} /* bottom padding for sticky bar */
+    .hero-img{width:100%;border-radius:16px;display:block}
+    .lang-switch{
+      display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:12px 0 8px
+    }
+    .lang-button{
+      border:2px solid var(--brand);color:var(--brand);background:#fff;
+      font-weight:800;padding:6px 12px;cursor:pointer;border-radius:10px
+    }
     .lang-button.active{background:var(--brand);color:#fff}
-    h1{font-size:1.32rem;margin:8px 0}
-    h2{font-size:1.02rem;margin:0 0 12px;color:#333;font-weight:600}
-    ul{padding-left:20px;margin:0 0 12px}
+    h1{font-size:1.45rem;line-height:1.25;margin:12px 0 6px}
+    h2{font-size:1.05rem;line-height:1.35;margin:0 0 12px;color:#222}
+    ul{margin:0 0 10px;padding-left:20px}
     li{margin-bottom:6px}
-    .months{background:#f5f8ff;border:1px solid #e1e9ff;border-radius:8px;padding:10px 12px;margin:12px 0}
+    .months{background:var(--soft);border:1px solid #e1e9ff;border-radius:12px;padding:10px 12px;margin:12px 0}
     .months li{margin:4px 0}
-    .note{font-size:.95rem;color:#444;margin:12px 0}
-    .cta{display:block;width:100%;text-align:center;background:var(--brand);color:#fff;padding:14px;font-size:1.08rem;text-decoration:none;border-radius:8px;font-weight:700}
-    .cta:hover{background:var(--brand-dark)}
-    .cta + .cta{margin-top:8px}
+    .note{font-size:.95rem;color:#333;margin:12px 0}
+    .subnote{font-size:.88rem;color:var(--muted);margin-top:8px}
+
+    /* CTA buttons (hero + footer + sticky) */
+    .cta-row{display:flex;gap:12px;flex-wrap:wrap;margin:14px 0}
+    .btn{
+      display:inline-block;text-decoration:none;line-height:1;white-space:nowrap;
+      padding:14px 18px;border-radius:var(--radius);font-weight:900;
+      border:1px solid transparent;box-shadow:var(--shadow);
+      transition:transform .06s ease,box-shadow .2s ease,opacity .2s ease;
+      user-select:none;
+    }
+    .btn:active{transform:translateY(1px)}
+    .btn small{display:block;font-weight:600;opacity:.9;margin-top:4px}
+    .btn-primary{background:var(--brand);color:#fff;border-color:var(--brand)}
+    .btn-secondary{background:var(--accent);color:#fff;border-color:var(--accent)}
+    @media (max-width:560px){ .btn{flex:1;text-align:center} }
+
+    /* Sticky CTA bar (always visible) */
+    .cta-sticky{
+      position:fixed;left:0;right:0;bottom:10px;z-index:9999;
+      display:flex;gap:10px;justify-content:center;align-items:center;
+      padding:10px 12px;background:rgba(255,255,255,.96);
+      backdrop-filter:blur(8px); width:100%;
+    }
+    .cta-sticky-inner{
+      display:flex;gap:10px;max-width:620px;margin:0 auto
+    }
+    .cta-sticky .btn{box-shadow:0 10px 30px rgba(0,0,0,.12)}
+    @media (min-width:861px){ .container{padding-bottom:140px} }
+
+    /* Footer CTA duplication */
+    .cta-footer{margin:28px 0 4px}
+
+    /* Accessibility helpers */
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
   </style>
 </head>
 <body>
   <div class="container">
-    <img id="header-img" src="EG_en_for_landing.jpg" alt="Dive Safari Egypt"/>
+    <img id="header-img" class="hero-img" src="EG_en_for_landing.jpg" alt="Dive Safari Egypt" loading="lazy"/>
 
-    <div class="lang-switch">
-      <button id="btn-ru" class="lang-button" onclick="setLanguage('ru')">RU</button>
-      <button id="btn-en" class="lang-button" onclick="setLanguage('en')">EN</button>
-      <button id="btn-pl" class="lang-button" onclick="setLanguage('pl')">PL</button>
-      <button id="btn-lv" class="lang-button" onclick="setLanguage('lv')">LV</button>
-      <button id="btn-de" class="lang-button" onclick="setLanguage('de')">DE</button>
-      <button id="btn-fr" class="lang-button" onclick="setLanguage('fr')">FR</button>
-      <button id="btn-it" class="lang-button" onclick="setLanguage('it')">IT</button>
-      <button id="btn-es" class="lang-button" onclick="setLanguage('es')">ES</button>
+    <!-- Language switch (keeps multilingual structure) -->
+    <div class="lang-switch" role="tablist" aria-label="Language switcher">
+      <button id="btn-ru" class="lang-button" onclick="setLanguage('ru')" role="tab" aria-controls="lang-ru">RU</button>
+      <button id="btn-en" class="lang-button" onclick="setLanguage('en')" role="tab" aria-controls="lang-en">EN</button>
+      <button id="btn-pl" class="lang-button" onclick="setLanguage('pl')" role="tab" aria-controls="lang-pl">PL</button>
+      <button id="btn-lv" class="lang-button" onclick="setLanguage('lv')" role="tab" aria-controls="lang-lv">LV</button>
+      <button id="btn-de" class="lang-button" onclick="setLanguage('de')" role="tab" aria-controls="lang-de">DE</button>
+      <button id="btn-fr" class="lang-button" onclick="setLanguage('fr')" role="tab" aria-controls="lang-fr">FR</button>
+      <button id="btn-it" class="lang-button" onclick="setLanguage('it')" role="tab" aria-controls="lang-it">IT</button>
+      <button id="btn-es" class="lang-button" onclick="setLanguage('es')" role="tab" aria-controls="lang-es">ES</button>
     </div>
 
-    <!-- RU -->
-    <div id="lang-ru" style="display:none">
+    <!-- ================= RU ================= -->
+    <section id="lang-ru" style="display:none" role="tabpanel" aria-labelledby="btn-ru">
       <h1>✈️ Мы встретим вас в аэропорту Хургады</h1>
       <h2>Базовый пакет от 750 € — всё включено: яхта, питание, дайвинг, трансфер.</h2>
+      <div class="cta-row" aria-label="Основные действия">
+        <a class="btn btn-primary" href="https://iscuba.online/dive/fb-eg/" target="_blank" rel="noopener" onclick="trackClickMessenger()">🟦 Перейти в Messenger <small>ответим в течение 15 минут</small></a>
+        <a class="btn btn-secondary" href="https://iscuba.online/dive/tg-eg/" target="_blank" rel="noopener" onclick="trackClickTelegram()">🔵 Перейти в Telegram <small>расписание и свободные места</small></a>
+      </div>
       <ul>
         <li>🛥 Яхты: Sunshine, Sunlight и Springland</li>
         <li>📍 Маршруты: Север, Юг, Дальний Юг</li>
@@ -72,18 +130,18 @@
         <li>📅 Октябрь — осталось несколько кают</li>
         <li>📅 Ноябрь — завершаем набор</li>
       </ul>
-      <div class="note">
-        📩 Актуальное расписание и свободные места — в Messenger или Telegram. <br/>
-        💬 Наш менеджер яхты ответит на все вопросы лично.
-      </div>
-      <a class="cta" href="https://iscuba.online/dive/tg-eg/" target="_blank" onclick="trackClickTelegram()">🔵 Перейти в Telegram</a>
-      <a class="cta" href="https://iscuba.online/dive/fb-eg/" target="_blank" onclick="trackClickMessenger()">🟦 Перейти в Messenger</a>
-    </div>
+      <p class="note">📩 Актуальное расписание и свободные места — в Messenger или Telegram. <br/> 💬 Менеджер яхты ответит лично.</p>
+      <p class="subnote">Без предоплаты до подтверждения каюты. Документы и страховка — по запросу.</p>
+    </section>
 
-    <!-- EN -->
-    <div id="lang-en" style="display:none">
+    <!-- ================= EN ================= -->
+    <section id="lang-en" style="display:none" role="tabpanel" aria-labelledby="btn-en">
       <h1>✈️ We’ll meet you at Hurghada Airport</h1>
       <h2>Base package from €750 — all inclusive: liveaboard, meals, diving, airport transfer.</h2>
+      <div class="cta-row" aria-label="Primary actions">
+        <a class="btn btn-primary" href="https://iscuba.online/dive/fb-eg/" target="_blank" rel="noopener" onclick="trackClickMessenger()">🟦 Go to Messenger <small>reply within 15 minutes</small></a>
+        <a class="btn btn-secondary" href="https://iscuba.online/dive/tg-eg/" target="_blank" rel="noopener" onclick="trackClickTelegram()">🔵 Go to Telegram <small>schedule & free spots</small></a>
+      </div>
       <ul>
         <li>🛥 Yachts: Sunshine, Sunlight, Springland</li>
         <li>📍 Routes: North, South, Deep South</li>
@@ -93,18 +151,18 @@
         <li>📅 October — few cabins left</li>
         <li>📅 November — closing the group</li>
       </ul>
-      <div class="note">
-        📩 Get the current schedule and free spots in Messenger or Telegram. <br/>
-        💬 Our liveaboard manager will answer your questions personally.
-      </div>
-      <a class="cta" href="https://iscuba.online/dive/tg-eg/" target="_blank" onclick="trackClickTelegram()">🔵 Go to Telegram</a>
-      <a class="cta" href="https://iscuba.online/dive/fb-eg/" target="_blank" onclick="trackClickMessenger()">🟦 Go to Messenger</a>
-    </div>
+      <p class="note">📩 Get the current schedule and free spots in Messenger or Telegram. <br/> 💬 Our liveaboard manager will answer you personally.</p>
+      <p class="subnote">No prepayment until your cabin is confirmed. Insurance details on request.</p>
+    </section>
 
-    <!-- PL -->
-    <div id="lang-pl" style="display:none">
+    <!-- ================= PL ================= -->
+    <section id="lang-pl" style="display:none" role="tabpanel" aria-labelledby="btn-pl">
       <h1>✈️ Odbierzemy Cię z lotniska w Hurghadzie</h1>
       <h2>Pakiet podstawowy od 750 € — wszystko w cenie: liveaboard, wyżywienie, nurkowania, transfer z lotniska.</h2>
+      <div class="cta-row" aria-label="Główne działania">
+        <a class="btn btn-primary" href="https://iscuba.online/dive/fb-eg/" target="_blank" rel="noopener" onclick="trackClickMessenger()">🟦 Otwórz w Messengerze <small>odpowiemy w 15 minut</small></a>
+        <a class="btn btn-secondary" href="https://iscuba.online/dive/tg-eg/" target="_blank" rel="noopener" onclick="trackClickTelegram()">🔵 Otwórz w Telegramie <small>grafik i wolne miejsca</small></a>
+      </div>
       <ul>
         <li>🛥 Jachty: Sunshine, Sunlight, Springland</li>
         <li>📍 Trasy: Północ, Południe, Dalekie Południe</li>
@@ -114,18 +172,18 @@
         <li>📅 Październik — zostało kilka kabin</li>
         <li>📅 Listopad — domykamy grupę</li>
       </ul>
-      <div class="note">
-        📩 Aktualny harmonogram i wolne miejsca — w Messengerze lub Telegramie. <br/>
-        💬 Manager jachtu odpowie na wszystkie pytania osobiście.
-      </div>
-      <a class="cta" href="https://iscuba.online/dive/tg-eg/" target="_blank" onclick="trackClickTelegram()">🔵 Otwórz w Telegramie</a>
-      <a class="cta" href="https://iscuba.online/dive/fb-eg/" target="_blank" onclick="trackClickMessenger()">🟦 Otwórz w Messengerze</a>
-    </div>
+      <p class="note">📩 Aktualny harmonogram i miejsca — w Messengerze lub Telegramie. <br/> 💬 Menedżer jachtu odpowie osobiście.</p>
+      <p class="subnote">Bez przedpłaty do potwierdzenia kabiny. Ubezpieczenie na życzenie.</p>
+    </section>
 
-    <!-- LV -->
-    <div id="lang-lv" style="display:none">
+    <!-- ================= LV ================= -->
+    <section id="lang-lv" style="display:none" role="tabpanel" aria-labelledby="btn-lv">
       <h1>✈️ Mēs jūs sagaidīsim Hurgadas lidostā</h1>
       <h2>Bāzes pakete no 750 € — viss iekļauts: jahta, ēdināšana, niršana, transfērs no lidostas.</h2>
+      <div class="cta-row" aria-label="Galvenās darbības">
+        <a class="btn btn-primary" href="https://iscuba.online/dive/fb-eg/" target="_blank" rel="noopener" onclick="trackClickMessenger()">🟦 Atvērt Messenger <small>atbilde 15 minūtēs</small></a>
+        <a class="btn btn-secondary" href="https://iscuba.online/dive/tg-eg/" target="_blank" rel="noopener" onclick="trackClickTelegram()">🔵 Atvērt Telegram <small>grafiks un brīvās vietas</small></a>
+      </div>
       <ul>
         <li>🛥 Jahtas: Sunshine, Sunlight, Springland</li>
         <li>📍 Maršruti: Ziemeļi, Dienvidi, Tālie Dienvidi</li>
@@ -135,18 +193,18 @@
         <li>📅 Oktobris — palikušas dažas kajītes</li>
         <li>📅 Novembris — noslēdzam grupu</li>
       </ul>
-      <div class="note">
-        📩 Aktuālais grafiks un brīvās vietas — Messenger vai Telegram. <br/>
-        💬 Mūsu jahtas menedžeris atbildēs personīgi.
-      </div>
-      <a class="cta" href="https://iscuba.online/dive/tg-eg/" target="_blank" onclick="trackClickTelegram()">🔵 Atvērt Telegram</a>
-      <a class="cta" href="https://iscuba.online/dive/fb-eg/" target="_blank" onclick="trackClickMessenger()">🟦 Atvērt Messenger</a>
-    </div>
+      <p class="note">📩 Aktuālais grafiks un brīvās vietas — Messenger vai Telegram. <br/> 💬 Jahtas menedžeris atbildēs personīgi.</p>
+      <p class="subnote">Bez priekšapmaksas līdz kajītes apstiprināšanai. Apdrošināšana pēc pieprasījuma.</p>
+    </section>
 
-    <!-- DE -->
-    <div id="lang-de" style="display:none">
+    <!-- ================= DE ================= -->
+    <section id="lang-de" style="display:none" role="tabpanel" aria-labelledby="btn-de">
       <h1>✈️ Wir holen Sie am Flughafen Hurghada ab</h1>
       <h2>Basispaket ab 750 € – alles inklusive: Liveaboard, Verpflegung, Tauchgänge, Transfer.</h2>
+      <div class="cta-row" aria-label="Hauptaktionen">
+        <a class="btn btn-primary" href="https://iscuba.online/dive/fb-eg/" target="_blank" rel="noopener" onclick="trackClickMessenger()">🟦 Zu Messenger <small>Antwort in 15 Minuten</small></a>
+        <a class="btn btn-secondary" href="https://iscuba.online/dive/tg-eg/" target="_blank" rel="noopener" onclick="trackClickTelegram()">🔵 Zu Telegram <small>Plan & freie Plätze</small></a>
+      </div>
       <ul>
         <li>🛥 Yachten: Sunshine, Sunlight, Springland</li>
         <li>📍 Routen: Norden, Süden, Deep South</li>
@@ -156,18 +214,18 @@
         <li>📅 Oktober — wenige Kabinen frei</li>
         <li>📅 November — Gruppe wird geschlossen</li>
       </ul>
-      <div class="note">
-        📩 Aktueller Plan und freie Plätze — in Messenger oder Telegram. <br/>
-        💬 Unser Yacht-Manager beantwortet Ihre Fragen persönlich.
-      </div>
-      <a class="cta" href="https://iscuba.online/dive/tg-eg/" target="_blank" onclick="trackClickTelegram()">🔵 Zu Telegram</a>
-      <a class="cta" href="https://iscuba.online/dive/fb-eg/" target="_blank" onclick="trackClickMessenger()">🟦 Zu Messenger</a>
-    </div>
+      <p class="note">📩 Aktueller Plan und freie Plätze — in Messenger oder Telegram. <br/> 💬 Unser Yacht-Manager antwortet persönlich.</p>
+      <p class="subnote">Keine Vorauszahlung bis zur Kabinenbestätigung. Versicherung auf Anfrage.</p>
+    </section>
 
-    <!-- FR -->
-    <div id="lang-fr" style="display:none">
+    <!-- ================= FR ================= -->
+    <section id="lang-fr" style="display:none" role="tabpanel" aria-labelledby="btn-fr">
       <h1>✈️ Nous vous accueillerons à l’aéroport d’Hurghada</h1>
       <h2>Forfait de base dès 750 € — tout compris : liveaboard, repas, plongées, transfert.</h2>
+      <div class="cta-row" aria-label="Actions principales">
+        <a class="btn btn-primary" href="https://iscuba.online/dive/fb-eg/" target="_blank" rel="noopener" onclick="trackClickMessenger()">🟦 Ouvrir Messenger <small>réponse en 15 min</small></a>
+        <a class="btn btn-secondary" href="https://iscuba.online/dive/tg-eg/" target="_blank" rel="noopener" onclick="trackClickTelegram()">🔵 Ouvrir Telegram <small>horaires & places libres</small></a>
+      </div>
       <ul>
         <li>🛥 Yachts : Sunshine, Sunlight, Springland</li>
         <li>📍 Itinéraires : Nord, Sud, Grand Sud</li>
@@ -177,18 +235,18 @@
         <li>📅 Octobre — quelques cabines restantes</li>
         <li>📅 Novembre — clôture du groupe</li>
       </ul>
-      <div class="note">
-        📩 Horaires et places libres — dans Messenger ou Telegram. <br/>
-        💬 Notre responsable du yacht répondra à toutes vos questions, personnellement.
-      </div>
-      <a class="cta" href="https://iscuba.online/dive/tg-eg/" target="_blank" onclick="trackClickTelegram()">🔵 Ouvrir Telegram</a>
-      <a class="cta" href="https://iscuba.online/dive/fb-eg/" target="_blank" onclick="trackClickMessenger()">🟦 Ouvrir Messenger</a>
-    </div>
+      <p class="note">📩 Horaires et places libres — dans Messenger ou Telegram. <br/> 💬 Notre responsable du yacht vous répondra personnellement.</p>
+      <p class="subnote">Aucun acompte jusqu’à confirmation de cabine. Assurance sur demande.</p>
+    </section>
 
-    <!-- IT -->
-    <div id="lang-it" style="display:none">
+    <!-- ================= IT ================= -->
+    <section id="lang-it" style="display:none" role="tabpanel" aria-labelledby="btn-it">
       <h1>✈️ Vi aspettiamo all’aeroporto di Hurghada</h1>
       <h2>Pacchetto base da 750 € — tutto incluso: liveaboard, pasti, immersioni, transfer.</h2>
+      <div class="cta-row" aria-label="Azioni principali">
+        <a class="btn btn-primary" href="https://iscuba.online/dive/fb-eg/" target="_blank" rel="noopener" onclick="trackClickMessenger()">🟦 Apri in Messenger <small>rispondiamo in 15 minuti</small></a>
+        <a class="btn btn-secondary" href="https://iscuba.online/dive/tg-eg/" target="_blank" rel="noopener" onclick="trackClickTelegram()">🔵 Apri in Telegram <small>calendario & posti liberi</small></a>
+      </div>
       <ul>
         <li>🛥 Yacht: Sunshine, Sunlight, Springland</li>
         <li>📍 Itinerari: Nord, Sud, Estremo Sud</li>
@@ -198,18 +256,18 @@
         <li>📅 Ottobre — poche cabine rimaste</li>
         <li>📅 Novembre — chiudiamo il gruppo</li>
       </ul>
-      <div class="note">
-        📩 Programma aggiornato e posti liberi — in Messenger o Telegram. <br/>
-        💬 Il nostro manager dello yacht risponderà personalmente a ogni domanda.
-      </div>
-      <a class="cta" href="https://iscuba.online/dive/tg-eg/" target="_blank" onclick="trackClickTelegram()">🔵 Apri in Telegram</a>
-      <a class="cta" href="https://iscuba.online/dive/fb-eg/" target="_blank" onclick="trackClickMessenger()">🟦 Apri in Messenger</a>
-    </div>
+      <p class="note">📩 Programma aggiornato e posti liberi — in Messenger o Telegram. <br/> 💬 Il nostro manager dello yacht risponderà personalmente.</p>
+      <p class="subnote">Nessun pagamento anticipato finché la cabina non è confermata. Assicurazione su richiesta.</p>
+    </section>
 
-    <!-- ES -->
-    <div id="lang-es" style="display:none">
+    <!-- ================= ES ================= -->
+    <section id="lang-es" style="display:none" role="tabpanel" aria-labelledby="btn-es">
       <h1>✈️ Te recibimos en el aeropuerto de Hurgada</h1>
       <h2>Paquete base desde 750 € — todo incluido: liveaboard, comidas, buceo y traslado.</h2>
+      <div class="cta-row" aria-label="Acciones principales">
+        <a class="btn btn-primary" href="https://iscuba.online/dive/fb-eg/" target="_blank" rel="noopener" onclick="trackClickMessenger()">🟦 Abrir en Messenger <small>respuesta en 15 min</small></a>
+        <a class="btn btn-secondary" href="https://iscuba.online/dive/tg-eg/" target="_blank" rel="noopener" onclick="trackClickTelegram()">🔵 Abrir en Telegram <small>horario y plazas libres</small></a>
+      </div>
       <ul>
         <li>🛥 Yates: Sunshine, Sunlight y Springland</li>
         <li>📍 Rutas: Norte, Sur, Sur Profundo</li>
@@ -219,17 +277,29 @@
         <li>📅 Octubre — pocas cabinas disponibles</li>
         <li>📅 Noviembre — cerramos el grupo</li>
       </ul>
-      <div class="note">
-        📩 Horario actual y plazas libres — en Messenger o Telegram. <br/>
-        💬 Nuestro gerente del yate responderá personalmente a tus preguntas.
+      <p class="note">📩 Horario actual y plazas libres — en Messenger o Telegram. <br/> 💬 Nuestro gerente del yate responderá personalmente.</p>
+      <p class="subnote">Sin pago previo hasta confirmar cabina. Seguro a petición.</p>
+    </section>
+
+    <!-- Footer CTA duplication -->
+    <div class="cta-footer" aria-label="Повтор CTA / Repeat CTA">
+      <div class="cta-row">
+        <a class="btn btn-primary" href="https://iscuba.online/dive/fb-eg/" target="_blank" rel="noopener" onclick="trackClickMessenger()">🟦 Messenger</a>
+        <a class="btn btn-secondary" href="https://iscuba.online/dive/tg-eg/" target="_blank" rel="noopener" onclick="trackClickTelegram()">🔵 Telegram</a>
       </div>
-      <a class="cta" href="https://iscuba.online/dive/tg-eg/" target="_blank" onclick="trackClickTelegram()">🔵 Abrir en Telegram</a>
-      <a class="cta" href="https://iscuba.online/dive/fb-eg/" target="_blank" onclick="trackClickMessenger()">🟦 Abrir en Messenger</a>
     </div>
   </div>
 
+  <!-- Sticky CTA always visible -->
+  <nav class="cta-sticky" role="navigation" aria-label="Floating call to action">
+    <div class="cta-sticky-inner">
+      <a class="btn btn-primary" href="https://iscuba.online/dive/fb-eg/" target="_blank" rel="noopener" onclick="trackClickMessenger()">🟦 Messenger</a>
+      <a class="btn btn-secondary" href="https://iscuba.online/dive/tg-eg/" target="_blank" rel="noopener" onclick="trackClickTelegram()">🔵 Telegram</a>
+    </div>
+  </nav>
+
   <script>
-    // Locale groups
+    // Locale groups (unchanged idea)
     const langsRU = ['ru','uk','be','kk','uz','ky','tk','az','hy','ka','tg','mo'];
     const langsPL = ['pl'];
     const langsLV = ['lv'];
@@ -242,11 +312,12 @@
         const el = document.getElementById(`lang-${l}`);
         if(el) el.style.display = (l===lang ? 'block' : 'none');
       });
-      // active button state
+      // active buttons
       document.querySelectorAll('.lang-button').forEach(b=>b.classList.remove('active'));
       const btn = document.getElementById(`btn-${lang}`);
       if(btn) btn.classList.add('active');
-      // swap header image
+
+      // header image swap
       const imgMap = {
         ru:'EG_ru_for_landing.jpg',
         en:'EG_en_for_landing.jpg',
@@ -259,7 +330,8 @@
       };
       const img = document.getElementById('header-img');
       img.src = imgMap[lang] || imgMap['en'];
-      // set html lang attr for a11y/SEO
+
+      // set html lang for a11y/SEO
       document.documentElement.setAttribute('lang', lang);
     }
 
@@ -268,9 +340,15 @@
       showLang(lang);
     }
 
-    // Pixel events (unchanged)
-    function trackClickTelegram(){ fbq('trackCustom','Click_EgyptBot_tg'); fbq('trackCustom','Subscribe'); }
-    function trackClickMessenger(){ fbq('trackCustom','Click_EgyptBot_fb'); fbq('trackCustom','Subscribe'); }
+    // Pixel events (preserved & unified across all CTAs)
+    function trackClickTelegram(){
+      fbq('trackCustom','Click_EgyptBot_tg');
+      fbq('trackCustom','Subscribe');
+    }
+    function trackClickMessenger(){
+      fbq('trackCustom','Click_EgyptBot_fb');
+      fbq('trackCustom','Subscribe');
+    }
 
     (function(){
       const saved = localStorage.getItem('langPref');
@@ -278,10 +356,10 @@
         langsRU.includes(userLang) ? 'ru' :
         langsPL.includes(userLang) ? 'pl' :
         langsLV.includes(userLang) ? 'lv' :
-        ['de','fr','it','es','en'].includes(userLang) ? userLang :
-        'en';
+        ['de','fr','it','es','en'].includes(userLang) ? userLang : 'en';
       showLang(saved || auto);
-      // 7s engaged view
+
+      // 7s engaged view (unchanged semantics)
       setTimeout(()=>{ fbq('trackCustom','ViewContent_EgyptBook_7s'); }, 7000);
     })();
   </script>
