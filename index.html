@@ -1,19 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
   <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
   <title>Dive Safari Egypt</title>
 
   <!-- Meta Pixel Code -->
+
   <script>
+
     !function(f,b,e,v,n,t,s)
     {
       if(f.fbq)return;
+
       n=f.fbq=function()
       {
-        n.callMethod ?
-        n.callMethod.apply(n,arguments) : n.queue.push(arguments)
+        n.callMethod
+          ? n.callMethod.apply(n,arguments)
+          : n.queue.push(arguments)
       };
 
       if(!f._fbq)f._fbq=n;
@@ -28,6 +38,7 @@
       t.src=v;
 
       s=b.getElementsByTagName(e)[0];
+
       s.parentNode.insertBefore(t,s)
 
     }(
@@ -38,29 +49,39 @@
     );
 
     fbq('init', '675997335920840');
+
     fbq('track', 'PageView');
+
   </script>
 
   <noscript>
+
     <img
       height="1"
       width="1"
       style="display:none"
       src="https://www.facebook.com/tr?id=675997335920840&ev=PageView&noscript=1"
     />
+
   </noscript>
 
   <style>
 
     :root{
+
       --brand:#28A8E9;
       --accent:#28A8E9;
+
       --text:#0f172a;
       --muted:#475569;
+
       --soft:#f1f5ff;
       --soft2:#e7eeff;
+
       --radius:14px;
+
       --shadow:0 6px 20px rgba(2,6,23,.08);
+
     }
 
     *{
@@ -68,6 +89,7 @@
     }
 
     body{
+
       font-family:
         system-ui,
         -apple-system,
@@ -78,160 +100,277 @@
         sans-serif;
 
       margin:0;
+
       background:#fff;
+
       color:var(--text);
 
       -webkit-font-smoothing:antialiased;
+
       -moz-osx-font-smoothing:grayscale;
+
     }
 
     .container{
+
       max-width:640px;
+
       margin:0 auto;
+
       padding:16px 16px 100px;
+
       text-align:center;
+
     }
 
     .hero-img{
+
       width:100%;
+
       border-radius:16px;
+
       display:block;
+
       margin:0 auto;
+
     }
 
     .lang-switch{
+
       display:flex;
+
       gap:8px;
+
       flex-wrap:wrap;
+
       justify-content:center;
+
       margin:12px 0 4px;
+
     }
 
     .lang-button{
+
       border:2px solid var(--brand);
+
       background:#fff;
+
       color:var(--brand);
+
       font-weight:800;
+
       padding:6px 12px;
+
       border-radius:12px;
+
       cursor:pointer;
+
     }
 
     .lang-button.active{
+
       background:var(--brand);
+
       color:#fff;
+
     }
 
     h1{
+
       font-size:1.45rem;
+
       line-height:1.25;
+
       margin:12px 0 6px;
+
     }
 
     h2{
+
       font-size:1.06rem;
+
       line-height:1.35;
+
       margin:0 0 14px;
+
       color:#1f2937;
+
     }
 
     ul{
+
       margin:10px auto 14px;
+
       padding-left:24px;
+
       list-style:disc;
+
       max-width:90%;
+
       text-align:left;
+
       display:inline-block;
+
     }
 
     ul li{
+
       margin-bottom:6px;
+
     }
 
     .note{
+
       font-size:.95rem;
+
       color:#1f2937;
+
       margin:12px auto;
+
       max-width:90%;
+
     }
 
     .subnote{
+
       font-size:.88rem;
+
       color:var(--muted);
+
       margin-top:6px;
+
       max-width:90%;
+
       margin-left:auto;
+
       margin-right:auto;
+
     }
 
     .cta-row{
+
       display:flex;
+
       gap:12px;
+
       flex-wrap:wrap;
+
       margin:16px 0;
+
       justify-content:center;
+
     }
 
     .btn{
+
       display:inline-flex;
+
       align-items:center;
+
       justify-content:center;
+
       gap:8px;
+
       padding:14px 18px;
+
       border-radius:var(--radius);
+
       text-decoration:none;
+
       font-weight:900;
+
       line-height:1;
+
       border:1px solid transparent;
+
       color:#fff;
+
       box-shadow:var(--shadow);
-      transition:transform .06s ease,opacity .2s ease;
+
+      transition:
+        transform .06s ease,
+        opacity .2s ease;
+
       min-height:48px;
+
     }
 
     .btn:active{
+
       transform:translateY(1px)
+
     }
 
     .btn-primary{
+
       background:var(--brand);
+
       border-color:var(--brand);
+
     }
 
     .btn small{
+
       font-weight:600;
+
       opacity:.92;
+
       display:block;
+
       margin-top:3px;
+
       line-height:1.1;
+
     }
 
     .secondary-link-wrapper{
+
       margin-top:18px;
+
       text-align:center;
+
     }
 
     .secondary-link-label{
+
       font-size:.9rem;
+
       color:var(--muted);
+
       margin-bottom:10px;
+
     }
 
     .secondary-link-btn{
+
       display:inline-block;
+
       padding:10px 16px;
+
       border:1px solid #cbd5e1;
+
       border-radius:12px;
+
       text-decoration:none;
+
       color:#334155;
+
       font-weight:600;
+
       background:#fff;
-      transition:background .2s ease,border-color .2s ease;
+
+      transition:
+        background .2s ease,
+        border-color .2s ease;
+
     }
 
     .secondary-link-btn:hover{
+
       background:#f8fafc;
+
       border-color:#94a3b8;
+
     }
 
     @media (max-width:768px){
@@ -248,9 +387,13 @@
       ul,
       .note,
       .subnote{
+
         max-width:100%;
+
         display:block;
+
         text-align:left;
+
       }
 
       .secondary-link-wrapper{
@@ -258,22 +401,35 @@
       }
 
       .cta-sticky{
+
         display:block;
+
         position:fixed;
+
         left:0;
         right:0;
         bottom:10px;
+
         z-index:9999;
+
         padding:10px 12px;
+
         background:rgba(255,255,255,.96);
+
         backdrop-filter:blur(8px)
+
       }
 
       .cta-sticky-inner{
+
         display:flex;
+
         gap:10px;
+
         max-width:640px;
+
         margin:0 auto
+
       }
     }
 
@@ -282,6 +438,7 @@
     }
 
   </style>
+
 </head>
 
 <body>
@@ -399,9 +556,19 @@
     </div>
 
     <ul>
-      <li>🛥 Яхты: Sunshine, Sunlight и Springland</li>
-      <li>📍 Маршруты: Север, Юг, Дальний Юг</li>
-      <li>✅ Nitrox, Wi-Fi и питание включены</li>
+
+      <li>
+        🛥 Яхты: Sunshine, Sunlight и Springland
+      </li>
+
+      <li>
+        📍 Маршруты: Север, Юг, Дальний Юг
+      </li>
+
+      <li>
+        ✅ Nitrox, Wi-Fi и питание включены
+      </li>
+
     </ul>
 
     <p class="note">
@@ -423,6 +590,7 @@
         href="https://iscuba.online/dive/eg-schedule-form-ru/"
         target="_blank"
         rel="noopener"
+        onclick="trackClickSchedule()"
       >
         📋 Смотреть расписание и форму запроса
       </a>
@@ -430,8 +598,11 @@
     </div>
 
     <p class="subnote">
+
       Без предоплаты до подтверждения каюты.
+
       Документы и страховка — по запросу.
+
     </p>
 
   </section>
@@ -465,9 +636,19 @@
     </div>
 
     <ul>
-      <li>🛥 Yachts: Sunshine, Sunlight, Springland</li>
-      <li>📍 Routes: North, South, Deep South</li>
-      <li>✅ Nitrox, Wi-Fi and meals included</li>
+
+      <li>
+        🛥 Yachts: Sunshine, Sunlight, Springland
+      </li>
+
+      <li>
+        📍 Routes: North, South, Deep South
+      </li>
+
+      <li>
+        ✅ Nitrox, Wi-Fi and meals included
+      </li>
+
     </ul>
 
     <p class="note">
@@ -489,6 +670,7 @@
         href="https://iscuba.online/dive/eg-schedule-form-ru/"
         target="_blank"
         rel="noopener"
+        onclick="trackClickSchedule()"
       >
         📋 View schedule and request form
       </a>
@@ -496,8 +678,11 @@
     </div>
 
     <p class="subnote">
+
       No prepayment until your cabin is confirmed.
+
       Insurance on request.
+
     </p>
 
   </section>
@@ -531,9 +716,19 @@
     </div>
 
     <ul>
-      <li>🛥 Jachty: Sunshine, Sunlight, Springland</li>
-      <li>📍 Trasy: Północ, Południe, Dalekie Południe</li>
-      <li>✅ Nitrox, Wi-Fi i wyżywienie w cenie</li>
+
+      <li>
+        🛥 Jachty: Sunshine, Sunlight, Springland
+      </li>
+
+      <li>
+        📍 Trasy: Północ, Południe, Dalekie Południe
+      </li>
+
+      <li>
+        ✅ Nitrox, Wi-Fi i wyżywienie w cenie
+      </li>
+
     </ul>
 
     <p class="note">
@@ -555,6 +750,7 @@
         href="https://iscuba.online/dive/eg-schedule-form-ru/"
         target="_blank"
         rel="noopener"
+        onclick="trackClickSchedule()"
       >
         📋 Zobacz harmonogram i formularz
       </a>
@@ -562,8 +758,11 @@
     </div>
 
     <p class="subnote">
+
       Bez przedpłaty do potwierdzenia kabiny.
+
       Ubezpieczenie na życzenie.
+
     </p>
 
   </section>
@@ -597,9 +796,19 @@
     </div>
 
     <ul>
-      <li>🛥 Jahtas: Sunshine, Sunlight, Springland</li>
-      <li>📍 Maršruti: Ziemeļi, Dienvidi, Tālie Dienvidi</li>
-      <li>✅ Nitrox, Wi-Fi un ēdināšana iekļauta</li>
+
+      <li>
+        🛥 Jahtas: Sunshine, Sunlight, Springland
+      </li>
+
+      <li>
+        📍 Maršruti: Ziemeļi, Dienvidi, Tālie Dienvidi
+      </li>
+
+      <li>
+        ✅ Nitrox, Wi-Fi un ēdināšana iekļauta
+      </li>
+
     </ul>
 
     <p class="note">
@@ -621,6 +830,7 @@
         href="https://iscuba.online/dive/eg-schedule-form-ru/"
         target="_blank"
         rel="noopener"
+        onclick="trackClickSchedule()"
       >
         📋 Skatīt grafiku un pieprasījuma formu
       </a>
@@ -628,8 +838,11 @@
     </div>
 
     <p class="subnote">
+
       Bez priekšapmaksas līdz kajītes apstiprināšanai.
+
       Apdrošināšana pēc pieprasījuma.
+
     </p>
 
   </section>
@@ -663,9 +876,19 @@
     </div>
 
     <ul>
-      <li>🛥 Yachten: Sunshine, Sunlight, Springland</li>
-      <li>📍 Routen: Norden, Süden, Deep South</li>
-      <li>✅ Nitrox, WLAN und Verpflegung inklusive</li>
+
+      <li>
+        🛥 Yachten: Sunshine, Sunlight, Springland
+      </li>
+
+      <li>
+        📍 Routen: Norden, Süden, Deep South
+      </li>
+
+      <li>
+        ✅ Nitrox, WLAN und Verpflegung inklusive
+      </li>
+
     </ul>
 
     <p class="note">
@@ -687,6 +910,7 @@
         href="https://iscuba.online/dive/eg-schedule-form-ru/"
         target="_blank"
         rel="noopener"
+        onclick="trackClickSchedule()"
       >
         📋 Fahrplan und Anfrageformular ansehen
       </a>
@@ -694,8 +918,11 @@
     </div>
 
     <p class="subnote">
+
       Keine Vorauszahlung bis zur Kabinenbestätigung.
+
       Versicherung auf Anfrage.
+
     </p>
 
   </section>
@@ -729,9 +956,19 @@
     </div>
 
     <ul>
-      <li>🛥 Yachts : Sunshine, Sunlight, Springland</li>
-      <li>📍 Itinéraires : Nord, Sud, Grand Sud</li>
-      <li>✅ Nitrox, Wi-Fi et repas inclus</li>
+
+      <li>
+        🛥 Yachts : Sunshine, Sunlight, Springland
+      </li>
+
+      <li>
+        📍 Itinéraires : Nord, Sud, Grand Sud
+      </li>
+
+      <li>
+        ✅ Nitrox, Wi-Fi et repas inclus
+      </li>
+
     </ul>
 
     <p class="note">
@@ -753,6 +990,7 @@
         href="https://iscuba.online/dive/eg-schedule-form-ru/"
         target="_blank"
         rel="noopener"
+        onclick="trackClickSchedule()"
       >
         📋 Voir le programme et le formulaire
       </a>
@@ -760,8 +998,11 @@
     </div>
 
     <p class="subnote">
+
       Aucun acompte jusqu’à confirmation de cabine.
+
       Assurance sur demande.
+
     </p>
 
   </section>
@@ -795,9 +1036,19 @@
     </div>
 
     <ul>
-      <li>🛥 Yacht: Sunshine, Sunlight, Springland</li>
-      <li>📍 Itinerari: Nord, Sud, Estremo Sud</li>
-      <li>✅ Nitrox, Wi-Fi e pasti inclusi</li>
+
+      <li>
+        🛥 Yacht: Sunshine, Sunlight, Springland
+      </li>
+
+      <li>
+        📍 Itinerari: Nord, Sud, Estremo Sud
+      </li>
+
+      <li>
+        ✅ Nitrox, Wi-Fi e pasti inclusi
+      </li>
+
     </ul>
 
     <p class="note">
@@ -819,6 +1070,7 @@
         href="https://iscuba.online/dive/eg-schedule-form-ru/"
         target="_blank"
         rel="noopener"
+        onclick="trackClickSchedule()"
       >
         📋 Visualizza programma e modulo richiesta
       </a>
@@ -826,8 +1078,11 @@
     </div>
 
     <p class="subnote">
+
       Nessun pagamento anticipato finché la cabina non è confermata.
+
       Assicurazione su richiesta.
+
     </p>
 
   </section>
@@ -861,9 +1116,19 @@
     </div>
 
     <ul>
-      <li>🛥 Yates: Sunshine, Sunlight y Springland</li>
-      <li>📍 Rutas: Norte, Sur, Sur Profundo</li>
-      <li>✅ Nitrox, Wi-Fi y comidas incluidas</li>
+
+      <li>
+        🛥 Yates: Sunshine, Sunlight y Springland
+      </li>
+
+      <li>
+        📍 Rutas: Norte, Sur, Sur Profundo
+      </li>
+
+      <li>
+        ✅ Nitrox, Wi-Fi y comidas incluidas
+      </li>
+
     </ul>
 
     <p class="note">
@@ -885,6 +1150,7 @@
         href="https://iscuba.online/dive/eg-schedule-form-ru/"
         target="_blank"
         rel="noopener"
+        onclick="trackClickSchedule()"
       >
         📋 Ver horario y formulario
       </a>
@@ -892,8 +1158,11 @@
     </div>
 
     <p class="subnote">
+
       Sin pago previo hasta confirmar cabina.
+
       Seguro a petición.
+
     </p>
 
   </section>
@@ -926,11 +1195,35 @@
 
 <script>
 
-  const langsRU=['ru','uk','be','kk','uz','ky','tk','az','hy','ka','tg','mo'];
+  const langsRU=[
+    'ru',
+    'uk',
+    'be',
+    'kk',
+    'uz',
+    'ky',
+    'tk',
+    'az',
+    'hy',
+    'ka',
+    'tg',
+    'mo'
+  ];
+
   const langsPL=['pl'];
+
   const langsLV=['lv'];
 
-  const ALL=['ru','en','pl','lv','de','fr','it','es'];
+  const ALL=[
+    'ru',
+    'en',
+    'pl',
+    'lv',
+    'de',
+    'fr',
+    'it',
+    'es'
+  ];
 
   const userLang=(navigator.language||'')
     .slice(0,2)
@@ -943,7 +1236,9 @@
       const e=document.getElementById('lang-'+x);
 
       if(e){
+
         e.style.display=(x===l?'block':'none');
+
       }
 
     });
@@ -955,18 +1250,29 @@
     const btn=document.getElementById('btn-'+l);
 
     if(btn){
+
       btn.classList.add('active');
+
     }
 
     const map={
+
       ru:'EG_ru_for_landing.jpg',
+
       en:'EG_en_for_landing.jpg',
+
       pl:'EG_pl_for_landing.jpg',
+
       lv:'EG_lv_for_landing.jpg',
+
       de:'EG_de_for_landing.jpg',
+
       fr:'EG_fr_for_landing.jpg',
+
       it:'EG_it_for_landing.jpg',
+
       es:'EG_es_for_landing.jpg'
+
     };
 
     const img=document.getElementById('header-img');
@@ -974,16 +1280,27 @@
     img.src=map[l]||map['en'];
 
     document.documentElement.setAttribute('lang', l);
+
   }
 
   function setLanguage(l){
+
     localStorage.setItem('langPref', l);
+
     showLang(l);
+
   }
 
   function trackClickTelegram(){
+
     fbq('trackCustom','Click_EgyptBot_tg');
-    fbq('trackCustom','Subscribe');
+
+  }
+
+  function trackClickSchedule(){
+
+    fbq('trackCustom','Click_EgyptSchedule');
+
   }
 
   (function(){
@@ -991,20 +1308,37 @@
     const saved=localStorage.getItem('langPref');
 
     const auto=
-      langsRU.includes(userLang) ? 'ru'
-      : langsPL.includes(userLang) ? 'pl'
-      : langsLV.includes(userLang) ? 'lv'
-      : (
-          ['de','fr','it','es','en']
-          .includes(userLang)
-            ? userLang
-            : 'en'
-        );
+
+      langsRU.includes(userLang)
+
+        ? 'ru'
+
+        : langsPL.includes(userLang)
+
+          ? 'pl'
+
+          : langsLV.includes(userLang)
+
+            ? 'lv'
+
+            : (
+                ['de','fr','it','es','en']
+                .includes(userLang)
+
+                  ? userLang
+
+                  : 'en'
+              );
 
     showLang(saved || auto);
 
     setTimeout(()=>{
-      fbq('trackCustom','ViewContent_EgyptBook_7s');
+
+      fbq(
+        'trackCustom',
+        'ViewContent_EgyptBook_7s'
+      );
+
     },7000);
 
   })();
