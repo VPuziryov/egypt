@@ -8,23 +8,50 @@
   <!-- Meta Pixel Code -->
   <script>
     !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
+    {
+      if(f.fbq)return;
+      n=f.fbq=function()
+      {
+        n.callMethod ?
+        n.callMethod.apply(n,arguments) : n.queue.push(arguments)
+      };
+
+      if(!f._fbq)f._fbq=n;
+
+      n.push=n;
+      n.loaded=!0;
+      n.version='2.0';
+      n.queue=[];
+
+      t=b.createElement(e);
+      t.async=!0;
+      t.src=v;
+
+      s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)
+
+    }(
+      window,
+      document,
+      'script',
+      'https://connect.facebook.net/en_US/fbevents.js'
+    );
+
     fbq('init', '675997335920840');
     fbq('track', 'PageView');
   </script>
 
   <noscript>
-    <img height="1" width="1" style="display:none"
-         src="https://www.facebook.com/tr?id=675997335920840&ev=PageView&noscript=1"/>
+    <img
+      height="1"
+      width="1"
+      style="display:none"
+      src="https://www.facebook.com/tr?id=675997335920840&ev=PageView&noscript=1"
+    />
   </noscript>
 
   <style>
+
     :root{
       --brand:#28A8E9;
       --accent:#28A8E9;
@@ -41,10 +68,19 @@
     }
 
     body{
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,sans-serif;
+      font-family:
+        system-ui,
+        -apple-system,
+        Segoe UI,
+        Roboto,
+        Ubuntu,
+        Cantarell,
+        sans-serif;
+
       margin:0;
       background:#fff;
       color:var(--text);
+
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
     }
@@ -170,6 +206,34 @@
       line-height:1.1;
     }
 
+    .secondary-link-wrapper{
+      margin-top:18px;
+      text-align:center;
+    }
+
+    .secondary-link-label{
+      font-size:.9rem;
+      color:var(--muted);
+      margin-bottom:10px;
+    }
+
+    .secondary-link-btn{
+      display:inline-block;
+      padding:10px 16px;
+      border:1px solid #cbd5e1;
+      border-radius:12px;
+      text-decoration:none;
+      color:#334155;
+      font-weight:600;
+      background:#fff;
+      transition:background .2s ease,border-color .2s ease;
+    }
+
+    .secondary-link-btn:hover{
+      background:#f8fafc;
+      border-color:#94a3b8;
+    }
+
     @media (max-width:768px){
 
       .container{
@@ -181,9 +245,15 @@
         text-align:center;
       }
 
-      ul,.note,.subnote{
+      ul,
+      .note,
+      .subnote{
         max-width:100%;
         display:block;
+        text-align:left;
+      }
+
+      .secondary-link-wrapper{
         text-align:left;
       }
 
@@ -210,6 +280,7 @@
     .cta-sticky{
       display:none
     }
+
   </style>
 </head>
 
@@ -226,22 +297,86 @@
   />
 
   <!-- Language switch -->
-  <div class="lang-switch" role="tablist" aria-label="Language switcher">
-    <button id="btn-ru" class="lang-button" onclick="setLanguage('ru')">RU</button>
-    <button id="btn-en" class="lang-button" onclick="setLanguage('en')">EN</button>
-    <button id="btn-pl" class="lang-button" onclick="setLanguage('pl')">PL</button>
-    <button id="btn-lv" class="lang-button" onclick="setLanguage('lv')">LV</button>
-    <button id="btn-de" class="lang-button" onclick="setLanguage('de')">DE</button>
-    <button id="btn-fr" class="lang-button" onclick="setLanguage('fr')">FR</button>
-    <button id="btn-it" class="lang-button" onclick="setLanguage('it')">IT</button>
-    <button id="btn-es" class="lang-button" onclick="setLanguage('es')">ES</button>
+
+  <div
+    class="lang-switch"
+    role="tablist"
+    aria-label="Language switcher"
+  >
+
+    <button
+      id="btn-ru"
+      class="lang-button"
+      onclick="setLanguage('ru')"
+    >
+      RU
+    </button>
+
+    <button
+      id="btn-en"
+      class="lang-button"
+      onclick="setLanguage('en')"
+    >
+      EN
+    </button>
+
+    <button
+      id="btn-pl"
+      class="lang-button"
+      onclick="setLanguage('pl')"
+    >
+      PL
+    </button>
+
+    <button
+      id="btn-lv"
+      class="lang-button"
+      onclick="setLanguage('lv')"
+    >
+      LV
+    </button>
+
+    <button
+      id="btn-de"
+      class="lang-button"
+      onclick="setLanguage('de')"
+    >
+      DE
+    </button>
+
+    <button
+      id="btn-fr"
+      class="lang-button"
+      onclick="setLanguage('fr')"
+    >
+      FR
+    </button>
+
+    <button
+      id="btn-it"
+      class="lang-button"
+      onclick="setLanguage('it')"
+    >
+      IT
+    </button>
+
+    <button
+      id="btn-es"
+      class="lang-button"
+      onclick="setLanguage('es')"
+    >
+      ES
+    </button>
+
   </div>
 
   <!-- ================= RU ================= -->
 
   <section id="lang-ru" style="display:none">
 
-    <h1>✈️ Мы встретим вас в аэропорту Хургады</h1>
+    <h1>
+      ✈️ Мы встретим вас в аэропорту Хургады
+    </h1>
 
     <h2>
       Базовый пакет от 750 € — всё включено:<br>
@@ -277,6 +412,23 @@
       💬 Менеджер яхты ответит лично.
     </p>
 
+    <div class="secondary-link-wrapper">
+
+      <div class="secondary-link-label">
+        🌐 Предпочитаете классический формат?
+      </div>
+
+      <a
+        class="secondary-link-btn"
+        href="https://iscuba.online/dive/eg-schedule-form-ru/"
+        target="_blank"
+        rel="noopener"
+      >
+        📋 Смотреть расписание и форму запроса
+      </a>
+
+    </div>
+
     <p class="subnote">
       Без предоплаты до подтверждения каюты.
       Документы и страховка — по запросу.
@@ -288,7 +440,9 @@
 
   <section id="lang-en" style="display:none">
 
-    <h1>✈️ We’ll meet you at Hurghada Airport</h1>
+    <h1>
+      ✈️ We’ll meet you at Hurghada Airport
+    </h1>
 
     <h2>
       Base package from €750 — all inclusive:<br>
@@ -324,6 +478,23 @@
       💬 Our liveaboard manager will answer personally.
     </p>
 
+    <div class="secondary-link-wrapper">
+
+      <div class="secondary-link-label">
+        🌐 Prefer a more traditional format?
+      </div>
+
+      <a
+        class="secondary-link-btn"
+        href="https://iscuba.online/dive/eg-schedule-form-ru/"
+        target="_blank"
+        rel="noopener"
+      >
+        📋 View schedule and request form
+      </a>
+
+    </div>
+
     <p class="subnote">
       No prepayment until your cabin is confirmed.
       Insurance on request.
@@ -335,7 +506,9 @@
 
   <section id="lang-pl" style="display:none">
 
-    <h1>✈️ Odbierzemy Cię z lotniska w Hurghadzie</h1>
+    <h1>
+      ✈️ Odbierzemy Cię z lotniska w Hurghadzie
+    </h1>
 
     <h2>
       Pakiet podstawowy od 750 € — wszystko w cenie:<br>
@@ -371,6 +544,23 @@
       💬 Menedżer jachtu odpowie osobiście.
     </p>
 
+    <div class="secondary-link-wrapper">
+
+      <div class="secondary-link-label">
+        🌐 Preferujesz klasyczny format?
+      </div>
+
+      <a
+        class="secondary-link-btn"
+        href="https://iscuba.online/dive/eg-schedule-form-ru/"
+        target="_blank"
+        rel="noopener"
+      >
+        📋 Zobacz harmonogram i formularz
+      </a>
+
+    </div>
+
     <p class="subnote">
       Bez przedpłaty do potwierdzenia kabiny.
       Ubezpieczenie na życzenie.
@@ -382,7 +572,9 @@
 
   <section id="lang-lv" style="display:none">
 
-    <h1>✈️ Mēs jūs sagaidīsim Hurgadas lidostā</h1>
+    <h1>
+      ✈️ Mēs jūs sagaidīsim Hurgadas lidostā
+    </h1>
 
     <h2>
       Bāzes pakete no 750 € — viss iekļauts:<br>
@@ -418,6 +610,23 @@
       💬 Jahtas menedžeris atbildēs personīgi.
     </p>
 
+    <div class="secondary-link-wrapper">
+
+      <div class="secondary-link-label">
+        🌐 Vēlaties klasiskāku formātu?
+      </div>
+
+      <a
+        class="secondary-link-btn"
+        href="https://iscuba.online/dive/eg-schedule-form-ru/"
+        target="_blank"
+        rel="noopener"
+      >
+        📋 Skatīt grafiku un pieprasījuma formu
+      </a>
+
+    </div>
+
     <p class="subnote">
       Bez priekšapmaksas līdz kajītes apstiprināšanai.
       Apdrošināšana pēc pieprasījuma.
@@ -429,7 +638,9 @@
 
   <section id="lang-de" style="display:none">
 
-    <h1>✈️ Wir holen Sie am Flughafen Hurghada ab</h1>
+    <h1>
+      ✈️ Wir holen Sie am Flughafen Hurghada ab
+    </h1>
 
     <h2>
       Basispaket ab 750 € — alles inklusive:<br>
@@ -465,6 +676,23 @@
       💬 Unser Yacht-Manager antwortet persönlich.
     </p>
 
+    <div class="secondary-link-wrapper">
+
+      <div class="secondary-link-label">
+        🌐 Bevorzugen Sie ein klassisches Format?
+      </div>
+
+      <a
+        class="secondary-link-btn"
+        href="https://iscuba.online/dive/eg-schedule-form-ru/"
+        target="_blank"
+        rel="noopener"
+      >
+        📋 Fahrplan und Anfrageformular ansehen
+      </a>
+
+    </div>
+
     <p class="subnote">
       Keine Vorauszahlung bis zur Kabinenbestätigung.
       Versicherung auf Anfrage.
@@ -476,7 +704,9 @@
 
   <section id="lang-fr" style="display:none">
 
-    <h1>✈️ Nous vous accueillerons à l’aéroport d’Hurghada</h1>
+    <h1>
+      ✈️ Nous vous accueillerons à l’aéroport d’Hurghada
+    </h1>
 
     <h2>
       Forfait de base dès 750 € — tout compris :<br>
@@ -512,6 +742,23 @@
       💬 Notre responsable du yacht vous répondra personnellement.
     </p>
 
+    <div class="secondary-link-wrapper">
+
+      <div class="secondary-link-label">
+        🌐 Vous préférez un format classique ?
+      </div>
+
+      <a
+        class="secondary-link-btn"
+        href="https://iscuba.online/dive/eg-schedule-form-ru/"
+        target="_blank"
+        rel="noopener"
+      >
+        📋 Voir le programme et le formulaire
+      </a>
+
+    </div>
+
     <p class="subnote">
       Aucun acompte jusqu’à confirmation de cabine.
       Assurance sur demande.
@@ -523,7 +770,9 @@
 
   <section id="lang-it" style="display:none">
 
-    <h1>✈️ Vi aspettiamo all’aeroporto di Hurghada</h1>
+    <h1>
+      ✈️ Vi aspettiamo all’aeroporto di Hurghada
+    </h1>
 
     <h2>
       Pacchetto base da 750 € — tutto incluso:<br>
@@ -559,6 +808,23 @@
       💬 Il nostro manager dello yacht risponderà personalmente.
     </p>
 
+    <div class="secondary-link-wrapper">
+
+      <div class="secondary-link-label">
+        🌐 Preferisci un formato classico?
+      </div>
+
+      <a
+        class="secondary-link-btn"
+        href="https://iscuba.online/dive/eg-schedule-form-ru/"
+        target="_blank"
+        rel="noopener"
+      >
+        📋 Visualizza programma e modulo richiesta
+      </a>
+
+    </div>
+
     <p class="subnote">
       Nessun pagamento anticipato finché la cabina non è confermata.
       Assicurazione su richiesta.
@@ -570,7 +836,9 @@
 
   <section id="lang-es" style="display:none">
 
-    <h1>✈️ Te recibimos en el aeropuerto de Hurgada</h1>
+    <h1>
+      ✈️ Te recibimos en el aeropuerto de Hurgada
+    </h1>
 
     <h2>
       Paquete base desde 750 € — todo incluido:<br>
@@ -605,6 +873,23 @@
     <p class="note">
       💬 Nuestro gerente del yate responderá personalmente.
     </p>
+
+    <div class="secondary-link-wrapper">
+
+      <div class="secondary-link-label">
+        🌐 ¿Prefieres un formato clásico?
+      </div>
+
+      <a
+        class="secondary-link-btn"
+        href="https://iscuba.online/dive/eg-schedule-form-ru/"
+        target="_blank"
+        rel="noopener"
+      >
+        📋 Ver horario y formulario
+      </a>
+
+    </div>
 
     <p class="subnote">
       Sin pago previo hasta confirmar cabina.
@@ -709,7 +994,12 @@
       langsRU.includes(userLang) ? 'ru'
       : langsPL.includes(userLang) ? 'pl'
       : langsLV.includes(userLang) ? 'lv'
-      : (['de','fr','it','es','en'].includes(userLang) ? userLang : 'en');
+      : (
+          ['de','fr','it','es','en']
+          .includes(userLang)
+            ? userLang
+            : 'en'
+        );
 
     showLang(saved || auto);
 
