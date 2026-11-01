@@ -1,3 +1,6 @@
+[functions]
+  directory = "netlify/functions"
+
 [[headers]]
   for = "/*"
   [headers.values]
@@ -14,6 +17,16 @@
 
 [[headers]]
   for = "/index.html"
+  [headers.values]
+    Cache-Control = "no-store"
+
+[[headers]]
+  for = "/schedule/*"
+  [headers.values]
+    Cache-Control = "no-store"
+
+[[headers]]
+  for = "/safari/*"
   [headers.values]
     Cache-Control = "no-store"
 
