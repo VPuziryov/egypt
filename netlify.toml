@@ -17,6 +17,11 @@
   [headers.values]
     Cache-Control = "no-store"
 
+[[headers]]
+  for = "/schedule/*"
+  [headers.values]
+    Cache-Control = "no-store"
+
 [[redirects]]
   from = "/wp-login.php"
   to = "/"

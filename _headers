@@ -41,3 +41,6 @@
   User-Agent: ScreamingFrogSEOSpider
 
   Disallow: /
+
+/schedule/*
+  Cache-Control: no-store
