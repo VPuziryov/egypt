@@ -44,3 +44,6 @@
 
 /schedule/*
   Cache-Control: no-store
+
+/safari/*
+  Cache-Control: no-store
